@@ -2,6 +2,8 @@
 
 Codex annotation: Created by Codex on 2026-07-15.
 
+[![Quality](https://github.com/chris1912/research-workflow-kit/actions/workflows/quality.yml/badge.svg)](https://github.com/chris1912/research-workflow-kit/actions/workflows/quality.yml)
+
 Research Workflow Kit is a small, provenance-aware orchestration layer for a
 research workflow that moves from a research question to evidence-backed
 writing and final style checks.
@@ -50,4 +52,3 @@ their original licenses, and all source commits are recorded in
 The kit does not provide scientific evidence, guarantee citation correctness,
 or replace expert review. External APIs, models, and document parsers can
 require credentials, network access, or additional license review.
-
