@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Research Workflow Kit | 启动手册</title>
+  <style>
+    * { box-sizing:border-box; }
+    body { max-width:900px; margin:0 auto; padding:32px 18px; font:16px/1.7 system-ui,"Microsoft YaHei",sans-serif; color:#17212b; background:#f7fafc; }
+    h1 { line-height:1.2; }
+    section { border:1px solid #d8e0e5; padding:16px; margin:16px 0; background:#fff; }
+    code { font-family:Consolas,monospace; }
+    a { color:#1769aa; }
+  </style>
+</head>
+<body>
+  <h1>Research Workflow Kit：从问题到可交付文本</h1>
+  <p>请先阅读<a href="ARCHITECTURE_ROADMAP.html">架构路线图</a>，再按任务阶段选择技能和可选后端。</p>
+  <section><h2>研究问题与申报书</h2><p>使用 <code>skills/workflow-router</code> 进入路由；使用 <code>skills/proposal-research</code> 生成候选方向、检索策略、证据卡和参考稿；使用 <code>skills/proposal-iteration</code> 处理“太长”“不够好”“不像原文”等迭代反馈。</p></section>
+  <section><h2>证据工作流</h2><p>先发现文献，再解析文档，然后建立本地语料问答和领域地图，最后把论断绑定到可追溯证据。外部后端配置见 <a href="DEPENDENCIES.md">依赖说明</a>。</p></section>
+  <section><h2>写作与检查</h2><p><code>skills/longform-writing</code> 负责结构和章节起草，<code>skills/academic-editing</code> 负责段落级润色，<code>skills/prose-lint</code> 负责 Vale 规则选择。风格检查不能替代事实核验。</p></section>
+  <section><h2>发布边界</h2><p>不要提交密钥、个人研究数据、真实申请书、虚拟环境或生成的二进制文件。来源、许可证和改名关系见 <a href="THIRD_PARTY_NOTICES.md">第三方致谢</a> 与 <a href="NAME_MAP.md">名称映射</a>。</p></section>
+</body>
+</html>

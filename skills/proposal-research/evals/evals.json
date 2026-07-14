@@ -1,0 +1,26 @@
+{
+  "skill_name": "proposal-research",
+  "evals": [
+    {
+      "id": 1,
+      "name": "guide_only_deep_research_startup",
+      "prompt": "我这里有一份科研项目指南，先别问我太多问题，请你根据指南自动拆解关键词、识别3个候选研究方向，并选择一个最优方向，启动科研申请书深研工作流。指南内容如下：某专项重点支持面向复杂环境的智能感知、可信决策与自主协同控制基础理论研究，鼓励交叉融合人工智能、机器人、信息物理系统和安全保障技术，形成可验证、可迁移、可解释的新方法。",
+      "expected_output": "The agent should explicitly notify the user that it is entering the grant proposal deep-research workflow, create or describe the guide-first deep-research artifacts, infer 3 candidate directions, score them with the agreed priorities, select one best direction, and label inferred content as needing human confirmation.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "guide_with_keywords_broad_search_plan",
+      "prompt": "根据下面项目指南和关键词，帮我做科研申请书参考稿。指南强调绿色低碳、智能制造、数据驱动建模和工业过程优化。关键词：多模态工业数据、数字孪生、节能优化、可解释机器学习。请按深研档推进，不要只做普通网页检索。",
+      "expected_output": "The agent should trigger the skill, state it will use deep-research mode rather than quick search, produce a broad-search-then-converge plan, include keyword expansion, candidate literature pool targets, core paper and evidence-card thresholds, and describe the required intermediate artifacts before drafting.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "existing_direction_with_background",
+      "prompt": "我已有大致方向：面向老年慢病管理的多源健康数据融合与个体化风险预测。研究背景是可穿戴设备和基层医疗数据越来越多，但跨源异构、缺失和可解释性不足。研究目的是形成可解释的风险预测和干预建议方法。请帮我生成一版科研申请书参考稿。",
+      "expected_output": "The agent should trigger or propose the skill, use the clearer-direction path with a 50-80 candidate literature target, still generate or request the standard intermediate artifacts, keep budget/team/ethics as placeholders, and plan one complete best-direction draft plus concept cards only if alternative directions are useful.",
+      "files": []
+    }
+  ]
+}

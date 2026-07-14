@@ -1,0 +1,9 @@
+extends: existence
+message: "考虑具体化“%s”，避免模板化学术套话。"
+level: suggestion
+tokens:
+  - 在一定程度上
+  - 从一定程度上
+  - 具有一定的理论意义和现实意义
+  - 为后续研究提供参考
+  - 具有较强的理论价值和实践意义

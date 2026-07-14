@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "Research Workflow Kit"
+message: "If this workflow helps your research, cite the repository and the upstream tools listed in docs/THIRD_PARTY_NOTICES.md."
+type: software
+authors:
+  - family-names: "Research Workflow Kit"
+    given-names: "Contributors"
+version: "0.1.0"
+date-released: "2026-07-15"
+license: MIT

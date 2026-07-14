@@ -1,0 +1,8 @@
+interface:
+  display_name: "Research Methods"
+  short_description: "Structured research design and integrity gates"
+  brand_color: "#2563EB"
+  default_prompt: "Use $research-methods to map my paper structure and missing evidence."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,19 @@
+name: quality
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[test]"
+      - run: python -m compileall src tests scripts
+      - run: python -m pytest
+      - run: python -c "import pathlib, shutil; [shutil.rmtree(path) for path in pathlib.Path('.').rglob('__pycache__')]; [shutil.rmtree(path) for path in pathlib.Path('.').rglob('.pytest_cache')]"
+      - run: python scripts/verify_publish_tree.py

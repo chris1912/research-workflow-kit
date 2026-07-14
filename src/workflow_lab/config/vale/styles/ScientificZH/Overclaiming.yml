@@ -1,0 +1,11 @@
+extends: existence
+message: "检查“%s”是否有足够证据支撑，避免过度宣称。"
+level: warning
+tokens:
+  - 具有重大意义
+  - 显著优于所有方法
+  - 完美解决
+  - 彻底消除
+  - 全面提升
+  - 绝对领先
+  - 无疑证明了

@@ -1,0 +1,9 @@
+extends: existence
+message: "考虑把“%s”落到具体场景、对象或任务，避免战略口号化。"
+level: suggestion
+tokens:
+  - 面向国家重大需求
+  - 服务国家重大战略需求
+  - 响应国家战略需求
+  - 面向国家战略需求
+  - 服务国家战略

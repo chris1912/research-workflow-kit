@@ -1,0 +1,129 @@
+{
+  "generated_by": "Codex",
+  "generated_at": "2026-07-15",
+  "first_party_license": "MIT",
+  "first_party_paths": [
+    "src/workflow_lab",
+    "skills/workflow-router",
+    "skills/proposal-research",
+    "skills/proposal-iteration",
+    "skills/prose-lint",
+    "src/workflow_lab/config/vale"
+  ],
+  "local_extractions": [
+    {
+      "alias": "formatting",
+      "source_path": "tools/formatter",
+      "public_path": "src/workflow_lab/formatting",
+      "modifications": "Moved to a package-relative location and removed generated Word output."
+    },
+    {
+      "alias": "prose-lint-rules",
+      "source_path": "tools/vale",
+      "public_path": "src/workflow_lab/config/vale",
+      "modifications": "Copied project-specific Vale profiles only; the Vale executable and model cache remain external."
+    }
+  ],
+  "sources": [
+    {
+      "alias": "research-methods",
+      "original_name": "academic-research-skills-codex",
+      "url": "https://github.com/Imbad0202/academic-research-skills-codex.git",
+      "commit": "8626ccb54ef73b620e67ac80107a56a6b65b180c",
+      "license": "CC BY-NC-4.0",
+      "mode": "bundled-skill",
+      "included_paths": ["skills/research-methods"],
+      "modifications": "Materialized the skill junction under a neutral public alias; upstream content and license remain identifiable."
+    },
+    {
+      "alias": "academic-editing",
+      "original_name": "academic-writing-assistant",
+      "url": "https://github.com/LvvUP/academic-writing-assistant.git",
+      "commit": "5dcb908308d090ebb3345ab77956e6593c0523b8",
+      "license": "MIT",
+      "mode": "bundled-skill",
+      "included_paths": ["skills/academic-editing"],
+      "modifications": "Copied the skill package into a neutral public directory."
+    },
+    {
+      "alias": "longform-writing",
+      "original_name": "research-writing-skill",
+      "url": "https://github.com/Norman-bury/research-writing-skill.git",
+      "commit": "6f7959554b4614d879d79cb4ece9ed04a7c8a88c",
+      "license": "MIT",
+      "mode": "bundled-skill",
+      "included_paths": ["skills/longform-writing"],
+      "modifications": "Materialized the writing modules and selected verification scripts under a neutral alias."
+    },
+    {
+      "alias": "discovery-backend",
+      "original_name": "paper-search-mcp",
+      "url": "https://github.com/openags/paper-search-mcp.git",
+      "commit": "c8b642183bb725f0a7faec89e58b558df09079d1",
+      "license": "MIT",
+      "mode": "external-adapter-only",
+      "included_paths": ["src/workflow_lab/adapters/discovery.py"],
+      "modifications": "No upstream runtime source copied; adapter invokes a user-installed executable."
+    },
+    {
+      "alias": "document-parser-backend",
+      "original_name": "MinerU",
+      "url": "https://github.com/opendatalab/MinerU.git",
+      "commit": "4be86ee07aeaf1c5cf71845cdcdc343e87f13068",
+      "license": "AGPL-3.0",
+      "mode": "external-adapter-only",
+      "included_paths": ["src/workflow_lab/adapters/document_parse.py"],
+      "modifications": "No AGPL runtime source copied."
+    },
+    {
+      "alias": "evidence-qa-backend",
+      "original_name": "paper-qa",
+      "url": "https://github.com/Future-House/paper-qa.git",
+      "commit": "d7675d7b7eddeb3535e8c260399c5bbeeb818c50",
+      "license": "Apache-2.0",
+      "mode": "external-adapter-only",
+      "included_paths": ["src/workflow_lab/adapters/evidence_qa.py"],
+      "modifications": "No upstream runtime source copied."
+    },
+    {
+      "alias": "literature-analysis-backend",
+      "original_name": "litstudy",
+      "url": "https://github.com/NLeSC/litstudy.git",
+      "commit": "391d3afb88304b80ebc2154382d0f181d71640cf",
+      "license": "Apache-2.0",
+      "mode": "external-adapter-only",
+      "included_paths": ["src/workflow_lab/adapters/literature_map.py"],
+      "modifications": "No upstream runtime source copied."
+    },
+    {
+      "alias": "research-synthesis-backend",
+      "original_name": "gpt-researcher",
+      "url": "https://github.com/assafelovic/gpt-researcher.git",
+      "commit": "18d405166948e11b4a0304c0c4ec440bead9e4a5",
+      "license": "Apache-2.0 file / conflicting package metadata",
+      "mode": "external-adapter-only",
+      "included_paths": ["src/workflow_lab/adapters/research_synthesis.py"],
+      "modifications": "No upstream runtime source copied pending license metadata clarification."
+    },
+    {
+      "alias": "prose-lint-engine",
+      "original_name": "vale-src",
+      "url": "https://github.com/vale-cli/vale.git",
+      "commit": "493b91e6ebfe15ecbab013876b91b4132059ff05",
+      "license": "MIT",
+      "mode": "external-executable",
+      "included_paths": ["src/workflow_lab/config/vale"],
+      "modifications": "Only project-specific profiles are included; the executable is installed separately."
+    },
+    {
+      "alias": "prompt-reference-links",
+      "original_name": "awesome-ai-research-writing",
+      "url": "https://github.com/chris1912/awesome-ai-research-writing.git",
+      "commit": "27a65dc54fabb6db86f7dde214d553072c1cbe22",
+      "license": "not found locally",
+      "mode": "link-only",
+      "included_paths": [],
+      "modifications": "No prompt text copied."
+    }
+  ]
+}

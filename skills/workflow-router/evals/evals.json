@@ -1,0 +1,23 @@
+{
+  "skill_name": "workflow-router",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use workflow-router to plan literature discovery and proposal evidence for an early pregnancy-loss question.",
+      "expected_output": "Surface docs/START_HERE.html, route to proposal-research plus the discovery adapter, and state evidence boundaries.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I do not remember which skill handles a PDF in this research workflow.",
+      "expected_output": "Surface docs/START_HERE.html and route document parsing before evidence QA when questions are needed.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Polish this Chinese proposal paragraph without changing its conclusion.",
+      "expected_output": "Route to academic-editing and prose-lint, not proposal-research unless broader evidence work is requested.",
+      "files": []
+    }
+  ]
+}

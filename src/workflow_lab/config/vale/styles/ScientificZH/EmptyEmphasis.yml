@@ -1,0 +1,10 @@
+extends: existence
+message: "考虑删除或具体化“%s”，避免空壳强调句。"
+level: suggestion
+tokens:
+  - 值得注意的是
+  - 需要指出的是
+  - 必须强调的是
+  - 重要的是
+  - 不难发现
+  - 可以看出

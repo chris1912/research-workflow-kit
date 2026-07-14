@@ -1,0 +1,39 @@
+# Python and build outputs
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*secret*
+*credential*
+
+# Research data and generated artifacts
+grant-workspace/
+runs/
+outputs/
+work/
+*.pdf
+*.docx
+*.pptx
+*.png
+*.jpg
+*.jpeg
+*.zip
+*.exe
+
+# Editors and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
