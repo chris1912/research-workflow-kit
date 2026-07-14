@@ -19,7 +19,11 @@ SECRET_ASSIGNMENT = re.compile(
 
 def iter_files(root: Path) -> list[Path]:
     """Return regular files below a candidate root in stable order."""
-    return sorted(path for path in root.rglob("*") if path.is_file())
+    return sorted(
+        path
+        for path in root.rglob("*")
+        if path.is_file() and ".git" not in path.relative_to(root).parts
+    )
 
 
 def scan_tree(root: Path) -> list[str]:
