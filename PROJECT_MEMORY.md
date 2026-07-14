@@ -43,6 +43,16 @@ Codex annotation: Verified by Codex on 2026-07-15.
 - HTML desktop/mobile browser check: both pages loaded without console errors and all relative links resolved.
 - Publish-tree scan: no nested Git metadata, junctions, secrets, absolute machine paths, binaries, or generated caches.
 
+## GitHub Publication
+
+Codex annotation: Published by Codex on 2026-07-15.
+
+- repository: `https://github.com/chris1912/research-workflow-kit`
+- visibility: public
+- default branch: `main`
+- latest local commit: `a696325`
+- GitHub Actions quality workflow: passing after the repository-metadata scan fix
+
 ## Update rule
 
 Update this file when the public tree, route order, provenance policy, or
