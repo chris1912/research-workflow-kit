@@ -1,0 +1,859 @@
+{
+  "name": "research-methods-essential-runtime",
+  "version": "1.0.1-e1-r1",
+  "packaging_mode": "essential_core",
+  "count_model": {
+    "workflows": 5,
+    "mode_operation_rows": 34,
+    "breakdown": {
+      "deep-research": 8,
+      "academic-paper": 11,
+      "academic-paper-reviewer": 6,
+      "academic-pipeline": 5,
+      "experiment": 4
+    },
+    "legacy_ars_mode_families": 27,
+    "legacy_count_explanation": "8 deep-research + 11 academic-paper + 6 academic-paper-reviewer + 1 pipeline family + 1 experiment family = 27 historical families; Essential Core expands pipeline ops and experiment modes to 34 rows.",
+    "prefixed_aliases": 68,
+    "alias_count_explanation": "34 mode/operation rows x 2 (ars-* and rm-*) = 68; compatibility labels (study-protocol, code-experiment, statistical-interpretation, reproducibility) are non-prefixed and not counted in 68."
+  },
+  "workflows": [
+    "deep-research",
+    "academic-paper",
+    "academic-paper-reviewer",
+    "academic-pipeline",
+    "experiment"
+  ],
+  "modes": [
+    {
+      "workflow": "deep-research",
+      "mode": "full",
+      "aliases": [
+        "rm-full-research",
+        "ars-full-research"
+      ],
+      "quality_gates": [
+        "evidence_state_vocab"
+      ],
+      "protocol_paths": [
+        "core/protocols/deep_research.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "deep-research",
+      "mode": "quick",
+      "aliases": [
+        "rm-quick-research",
+        "ars-quick-research"
+      ],
+      "quality_gates": [
+        "evidence_state_vocab"
+      ],
+      "protocol_paths": [
+        "core/protocols/deep_research.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "deep-research",
+      "mode": "review",
+      "aliases": [
+        "rm-review-sources",
+        "ars-review-sources"
+      ],
+      "quality_gates": [
+        "claim_verdict_vocab"
+      ],
+      "protocol_paths": [
+        "core/protocols/deep_research.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "deep-research",
+      "mode": "lit-review",
+      "aliases": [
+        "rm-lit-review",
+        "ars-lit-review"
+      ],
+      "quality_gates": [
+        "evidence_state_vocab"
+      ],
+      "protocol_paths": [
+        "core/protocols/deep_research.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "deep-research",
+      "mode": "three-way-scan",
+      "aliases": [
+        "rm-3w",
+        "ars-3w"
+      ],
+      "quality_gates": [
+        "evidence_state_vocab"
+      ],
+      "protocol_paths": [
+        "core/protocols/deep_research.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "deep-research",
+      "mode": "fact-check",
+      "aliases": [
+        "rm-fact-check",
+        "ars-fact-check"
+      ],
+      "quality_gates": [
+        "claim_verdict_vocab"
+      ],
+      "protocol_paths": [
+        "core/protocols/deep_research.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "deep-research",
+      "mode": "socratic",
+      "aliases": [
+        "rm-socratic",
+        "ars-socratic"
+      ],
+      "quality_gates": [
+        "vague_topic_socratic"
+      ],
+      "protocol_paths": [
+        "core/protocols/research_question.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "deep-research",
+      "mode": "systematic-review",
+      "aliases": [
+        "rm-systematic-review",
+        "ars-systematic-review"
+      ],
+      "quality_gates": [
+        "prisma_fields",
+        "rob2_fields",
+        "grade_fields"
+      ],
+      "protocol_paths": [
+        "core/protocols/systematic_review.md",
+        "core/protocols/deep_research.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper",
+      "mode": "full",
+      "aliases": [
+        "rm-full",
+        "ars-full"
+      ],
+      "quality_gates": [
+        "generator_evaluator_separation"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_paper.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper",
+      "mode": "plan",
+      "aliases": [
+        "rm-plan",
+        "ars-plan"
+      ],
+      "quality_gates": [
+        "generator_evaluator_separation"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_paper.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper",
+      "mode": "outline-only",
+      "aliases": [
+        "rm-outline",
+        "ars-outline"
+      ],
+      "quality_gates": [
+        "mode_registry_coverage"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_paper.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper",
+      "mode": "revision",
+      "aliases": [
+        "rm-revision",
+        "ars-revision"
+      ],
+      "quality_gates": [
+        "generator_evaluator_separation"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_paper.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper",
+      "mode": "revision-coach",
+      "aliases": [
+        "rm-revision-coach",
+        "ars-revision-coach"
+      ],
+      "quality_gates": [
+        "generator_evaluator_separation"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_paper.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper",
+      "mode": "abstract-only",
+      "aliases": [
+        "rm-abstract",
+        "ars-abstract"
+      ],
+      "quality_gates": [
+        "mode_registry_coverage"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_paper.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper",
+      "mode": "lit-review",
+      "aliases": [
+        "rm-paper-lit-review",
+        "ars-paper-lit-review"
+      ],
+      "quality_gates": [
+        "evidence_state_vocab"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_paper.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper",
+      "mode": "format-convert",
+      "aliases": [
+        "rm-format-convert",
+        "ars-format-convert"
+      ],
+      "quality_gates": [
+        "optional_runtime_honesty"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_paper.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper",
+      "mode": "citation-check",
+      "aliases": [
+        "rm-citation-check",
+        "ars-citation-check"
+      ],
+      "quality_gates": [
+        "claim_verdict_vocab"
+      ],
+      "protocol_paths": [
+        "core/protocols/citation_integrity.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper",
+      "mode": "disclosure",
+      "aliases": [
+        "rm-disclosure",
+        "ars-disclosure"
+      ],
+      "quality_gates": [
+        "mode_registry_coverage"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_paper.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper",
+      "mode": "rebuttal-audit",
+      "aliases": [
+        "rm-rebuttal-audit",
+        "ars-rebuttal-audit"
+      ],
+      "quality_gates": [
+        "generator_evaluator_separation"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_paper.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper-reviewer",
+      "mode": "full",
+      "aliases": [
+        "rm-reviewer",
+        "ars-reviewer"
+      ],
+      "quality_gates": [
+        "reviewer_independence"
+      ],
+      "protocol_paths": [
+        "core/protocols/manuscript_review.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper-reviewer",
+      "mode": "re-review",
+      "aliases": [
+        "rm-re-review",
+        "ars-re-review"
+      ],
+      "quality_gates": [
+        "reviewer_independence"
+      ],
+      "protocol_paths": [
+        "core/protocols/manuscript_review.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper-reviewer",
+      "mode": "quick",
+      "aliases": [
+        "rm-reviewer-quick",
+        "ars-reviewer-quick"
+      ],
+      "quality_gates": [
+        "mode_registry_coverage"
+      ],
+      "protocol_paths": [
+        "core/protocols/manuscript_review.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper-reviewer",
+      "mode": "methodology-focus",
+      "aliases": [
+        "rm-methodology-focus",
+        "ars-methodology-focus"
+      ],
+      "quality_gates": [
+        "reviewer_independence"
+      ],
+      "protocol_paths": [
+        "core/protocols/manuscript_review.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper-reviewer",
+      "mode": "guided",
+      "aliases": [
+        "rm-guided-review",
+        "ars-guided-review"
+      ],
+      "quality_gates": [
+        "mode_registry_coverage"
+      ],
+      "protocol_paths": [
+        "core/protocols/manuscript_review.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-paper-reviewer",
+      "mode": "calibration",
+      "aliases": [
+        "rm-calibration",
+        "ars-calibration"
+      ],
+      "quality_gates": [
+        "claim_verdict_vocab"
+      ],
+      "protocol_paths": [
+        "core/protocols/manuscript_review.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-pipeline",
+      "mode": "pipeline",
+      "aliases": [
+        "rm-pipeline",
+        "ars-pipeline"
+      ],
+      "quality_gates": [
+        "passport_reset_contract"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_pipeline.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-pipeline",
+      "mode": "resume_from_passport",
+      "aliases": [
+        "rm-resume",
+        "ars-resume"
+      ],
+      "quality_gates": [
+        "passport_reset_contract"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_pipeline.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-pipeline",
+      "mode": "mark-read",
+      "aliases": [
+        "rm-mark-read",
+        "ars-mark-read"
+      ],
+      "quality_gates": [
+        "mode_registry_coverage"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_pipeline.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-pipeline",
+      "mode": "unmark-read",
+      "aliases": [
+        "rm-unmark-read",
+        "ars-unmark-read"
+      ],
+      "quality_gates": [
+        "mode_registry_coverage"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_pipeline.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "academic-pipeline",
+      "mode": "cache-invalidate",
+      "aliases": [
+        "rm-cache-invalidate",
+        "ars-cache-invalidate"
+      ],
+      "quality_gates": [
+        "mode_registry_coverage"
+      ],
+      "protocol_paths": [
+        "core/protocols/academic_pipeline.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "experiment",
+      "mode": "plan",
+      "aliases": [
+        "rm-experiment-plan",
+        "ars-experiment-plan"
+      ],
+      "quality_gates": [
+        "stats_fallacies_11"
+      ],
+      "protocol_paths": [
+        "core/protocols/experiment.md"
+      ],
+      "compatibility_labels": [
+        "study-protocol"
+      ]
+    },
+    {
+      "workflow": "experiment",
+      "mode": "run",
+      "aliases": [
+        "rm-experiment-run",
+        "ars-experiment-run"
+      ],
+      "quality_gates": [
+        "optional_runtime_honesty"
+      ],
+      "protocol_paths": [
+        "core/protocols/experiment.md"
+      ],
+      "compatibility_labels": [
+        "code-experiment"
+      ]
+    },
+    {
+      "workflow": "experiment",
+      "mode": "manage",
+      "aliases": [
+        "rm-experiment-manage",
+        "ars-experiment-manage"
+      ],
+      "quality_gates": [
+        "mode_registry_coverage"
+      ],
+      "protocol_paths": [
+        "core/protocols/experiment.md"
+      ],
+      "compatibility_labels": []
+    },
+    {
+      "workflow": "experiment",
+      "mode": "validate",
+      "aliases": [
+        "rm-experiment-validate",
+        "ars-experiment-validate"
+      ],
+      "quality_gates": [
+        "stats_fallacies_11"
+      ],
+      "protocol_paths": [
+        "core/protocols/experiment.md"
+      ],
+      "compatibility_labels": [
+        "statistical-interpretation",
+        "reproducibility"
+      ]
+    }
+  ],
+  "aliases": {
+    "rm-full-research": {
+      "workflow": "deep-research",
+      "mode": "full"
+    },
+    "ars-full-research": {
+      "workflow": "deep-research",
+      "mode": "full"
+    },
+    "rm-quick-research": {
+      "workflow": "deep-research",
+      "mode": "quick"
+    },
+    "ars-quick-research": {
+      "workflow": "deep-research",
+      "mode": "quick"
+    },
+    "rm-review-sources": {
+      "workflow": "deep-research",
+      "mode": "review"
+    },
+    "ars-review-sources": {
+      "workflow": "deep-research",
+      "mode": "review"
+    },
+    "rm-lit-review": {
+      "workflow": "deep-research",
+      "mode": "lit-review"
+    },
+    "ars-lit-review": {
+      "workflow": "deep-research",
+      "mode": "lit-review"
+    },
+    "rm-3w": {
+      "workflow": "deep-research",
+      "mode": "three-way-scan"
+    },
+    "ars-3w": {
+      "workflow": "deep-research",
+      "mode": "three-way-scan"
+    },
+    "rm-fact-check": {
+      "workflow": "deep-research",
+      "mode": "fact-check"
+    },
+    "ars-fact-check": {
+      "workflow": "deep-research",
+      "mode": "fact-check"
+    },
+    "rm-socratic": {
+      "workflow": "deep-research",
+      "mode": "socratic"
+    },
+    "ars-socratic": {
+      "workflow": "deep-research",
+      "mode": "socratic"
+    },
+    "rm-systematic-review": {
+      "workflow": "deep-research",
+      "mode": "systematic-review"
+    },
+    "ars-systematic-review": {
+      "workflow": "deep-research",
+      "mode": "systematic-review"
+    },
+    "rm-full": {
+      "workflow": "academic-paper",
+      "mode": "full"
+    },
+    "ars-full": {
+      "workflow": "academic-paper",
+      "mode": "full"
+    },
+    "rm-plan": {
+      "workflow": "academic-paper",
+      "mode": "plan"
+    },
+    "ars-plan": {
+      "workflow": "academic-paper",
+      "mode": "plan"
+    },
+    "rm-outline": {
+      "workflow": "academic-paper",
+      "mode": "outline-only"
+    },
+    "ars-outline": {
+      "workflow": "academic-paper",
+      "mode": "outline-only"
+    },
+    "rm-revision": {
+      "workflow": "academic-paper",
+      "mode": "revision"
+    },
+    "ars-revision": {
+      "workflow": "academic-paper",
+      "mode": "revision"
+    },
+    "rm-revision-coach": {
+      "workflow": "academic-paper",
+      "mode": "revision-coach"
+    },
+    "ars-revision-coach": {
+      "workflow": "academic-paper",
+      "mode": "revision-coach"
+    },
+    "rm-abstract": {
+      "workflow": "academic-paper",
+      "mode": "abstract-only"
+    },
+    "ars-abstract": {
+      "workflow": "academic-paper",
+      "mode": "abstract-only"
+    },
+    "rm-paper-lit-review": {
+      "workflow": "academic-paper",
+      "mode": "lit-review"
+    },
+    "ars-paper-lit-review": {
+      "workflow": "academic-paper",
+      "mode": "lit-review"
+    },
+    "rm-format-convert": {
+      "workflow": "academic-paper",
+      "mode": "format-convert"
+    },
+    "ars-format-convert": {
+      "workflow": "academic-paper",
+      "mode": "format-convert"
+    },
+    "rm-citation-check": {
+      "workflow": "academic-paper",
+      "mode": "citation-check"
+    },
+    "ars-citation-check": {
+      "workflow": "academic-paper",
+      "mode": "citation-check"
+    },
+    "rm-disclosure": {
+      "workflow": "academic-paper",
+      "mode": "disclosure"
+    },
+    "ars-disclosure": {
+      "workflow": "academic-paper",
+      "mode": "disclosure"
+    },
+    "rm-rebuttal-audit": {
+      "workflow": "academic-paper",
+      "mode": "rebuttal-audit"
+    },
+    "ars-rebuttal-audit": {
+      "workflow": "academic-paper",
+      "mode": "rebuttal-audit"
+    },
+    "rm-reviewer": {
+      "workflow": "academic-paper-reviewer",
+      "mode": "full"
+    },
+    "ars-reviewer": {
+      "workflow": "academic-paper-reviewer",
+      "mode": "full"
+    },
+    "rm-re-review": {
+      "workflow": "academic-paper-reviewer",
+      "mode": "re-review"
+    },
+    "ars-re-review": {
+      "workflow": "academic-paper-reviewer",
+      "mode": "re-review"
+    },
+    "rm-reviewer-quick": {
+      "workflow": "academic-paper-reviewer",
+      "mode": "quick"
+    },
+    "ars-reviewer-quick": {
+      "workflow": "academic-paper-reviewer",
+      "mode": "quick"
+    },
+    "rm-methodology-focus": {
+      "workflow": "academic-paper-reviewer",
+      "mode": "methodology-focus"
+    },
+    "ars-methodology-focus": {
+      "workflow": "academic-paper-reviewer",
+      "mode": "methodology-focus"
+    },
+    "rm-guided-review": {
+      "workflow": "academic-paper-reviewer",
+      "mode": "guided"
+    },
+    "ars-guided-review": {
+      "workflow": "academic-paper-reviewer",
+      "mode": "guided"
+    },
+    "rm-calibration": {
+      "workflow": "academic-paper-reviewer",
+      "mode": "calibration"
+    },
+    "ars-calibration": {
+      "workflow": "academic-paper-reviewer",
+      "mode": "calibration"
+    },
+    "rm-pipeline": {
+      "workflow": "academic-pipeline",
+      "mode": "pipeline"
+    },
+    "ars-pipeline": {
+      "workflow": "academic-pipeline",
+      "mode": "pipeline"
+    },
+    "rm-resume": {
+      "workflow": "academic-pipeline",
+      "mode": "resume_from_passport"
+    },
+    "ars-resume": {
+      "workflow": "academic-pipeline",
+      "mode": "resume_from_passport"
+    },
+    "rm-mark-read": {
+      "workflow": "academic-pipeline",
+      "mode": "mark-read"
+    },
+    "ars-mark-read": {
+      "workflow": "academic-pipeline",
+      "mode": "mark-read"
+    },
+    "rm-unmark-read": {
+      "workflow": "academic-pipeline",
+      "mode": "unmark-read"
+    },
+    "ars-unmark-read": {
+      "workflow": "academic-pipeline",
+      "mode": "unmark-read"
+    },
+    "rm-cache-invalidate": {
+      "workflow": "academic-pipeline",
+      "mode": "cache-invalidate"
+    },
+    "ars-cache-invalidate": {
+      "workflow": "academic-pipeline",
+      "mode": "cache-invalidate"
+    },
+    "rm-experiment-plan": {
+      "workflow": "experiment",
+      "mode": "plan"
+    },
+    "ars-experiment-plan": {
+      "workflow": "experiment",
+      "mode": "plan"
+    },
+    "rm-experiment-run": {
+      "workflow": "experiment",
+      "mode": "run"
+    },
+    "ars-experiment-run": {
+      "workflow": "experiment",
+      "mode": "run"
+    },
+    "rm-experiment-manage": {
+      "workflow": "experiment",
+      "mode": "manage"
+    },
+    "ars-experiment-manage": {
+      "workflow": "experiment",
+      "mode": "manage"
+    },
+    "rm-experiment-validate": {
+      "workflow": "experiment",
+      "mode": "validate"
+    },
+    "ars-experiment-validate": {
+      "workflow": "experiment",
+      "mode": "validate"
+    }
+  },
+  "env_flags": {
+    "RM_FULL_RUNTIME": [
+      "ARS_CODEX_FULL_RUNTIME"
+    ],
+    "RM_AGENT_TEAM": [
+      "ARS_CODEX_AGENT_TEAM"
+    ],
+    "RM_HOOKS": [
+      "ARS_CODEX_HOOKS"
+    ],
+    "RM_PASSPORT_RESET": [
+      "ARS_PASSPORT_RESET"
+    ],
+    "RM_CLAIM_AUDIT": [
+      "ARS_CLAIM_AUDIT"
+    ]
+  },
+  "scripts": {
+    "planner": "runtime/scripts/essential_full_runtime.py",
+    "hook": "runtime/scripts/essential_hook.py",
+    "quality_gates": "runtime/scripts/essential_quality_gates.py"
+  },
+  "agents": {
+    "deep-research": "runtime/agents/deep-research-team.md",
+    "academic-paper": "runtime/agents/academic-paper-team.md",
+    "academic-paper-reviewer": "runtime/agents/paper-reviewer-panel.md",
+    "academic-pipeline": "runtime/agents/academic-pipeline-orchestrator.md",
+    "experiment": "runtime/agents/experiment-team.md"
+  },
+  "parity": {
+    "routing": "supported",
+    "protocol_depth": "not_started_for_e2_e4",
+    "reviewer_independence_runtime": "partial",
+    "passport_state_machine": "partial",
+    "full_ars_tree": "not_bundled"
+  }
+}

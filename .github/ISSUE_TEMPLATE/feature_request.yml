@@ -1,26 +1,33 @@
-name: Feature request
-description: Suggest a focused improvement to the workflow kit.
+name: Feature request / 功能请求
+description: Suggest a focused improvement to the workflow kit. / 建议聚焦的工作流改进。
 title: "[Feature]: "
 labels: ["enhancement"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Prefer changes that keep the kit lightweight, offline-usable without required backends, and free of private research artifacts.
+        优先保持轻量、无必需后端即可离线使用、且不含个人研究产物的改进。
   - type: textarea
     id: problem
     attributes:
-      label: Problem
-      description: What user or workflow problem should this solve?
+      label: Problem / 问题
+      description: What user or workflow problem should this solve? / 要解决的用户或工作流问题是什么？
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
-      label: Proposed change
-      description: Describe the smallest useful change and its evidence or provenance needs.
+      label: Proposed change / 建议变更
+      description: Smallest useful change and its evidence or provenance needs. / 最小有用变更及其证据或出处需求。
     validations:
       required: true
   - type: checkboxes
     id: scope
     attributes:
-      label: Scope check
+      label: Scope check / 范围确认
       options:
-        - label: This request does not require bundling credentials, private data, or an upstream runtime environment.
+        - label: This request does not require bundling credentials, private manuscripts, personal/health data, unpublished results, or an upstream runtime environment. / 本请求不要求打包凭据、未发表手稿、个人/健康数据、未公开结果或上游运行时环境。
+          required: true
+        - label: I understand optional secondary discovery and external methods suites remain optional. / 我理解可选次路线发现与外部方法套件仍为可选。
           required: true

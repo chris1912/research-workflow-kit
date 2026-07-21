@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Priority Papers | 优先全文文献</title>
+  <style>
+    :root { --ink:#17212b; --muted:#5c6b73; --line:#d8e0e5; --blue:#1769aa; --teal:#0f766e; --amber:#b45309; --paper:#f7fafc; --card:#fff; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.65 system-ui,"Segoe UI","Microsoft YaHei",sans-serif; }
+    main { max-width:1100px; margin:0 auto; padding:28px 18px 56px; }
+    header { border-bottom:2px solid var(--ink); padding-bottom:14px; margin-bottom:18px; }
+    h1 { margin:0 0 8px; font-size:clamp(1.6rem,4vw,2.2rem); line-height:1.15; }
+    h2 { margin:28px 0 10px; font-size:1.25rem; }
+    p { margin:8px 0; }
+    .muted { color:var(--muted); }
+    .boundary { border-left:4px solid var(--amber); background:var(--card); padding:12px 14px; margin:16px 0; }
+    .ok { border-left:4px solid var(--teal); }
+    nav { display:flex; flex-wrap:wrap; gap:10px; margin:14px 0; }
+    nav a { color:var(--blue); text-decoration:none; border:1px solid var(--line); background:var(--card); padding:6px 10px; border-radius:999px; }
+    table { width:100%; border-collapse:collapse; background:var(--card); margin:12px 0; }
+    th, td { border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top; }
+    th { background:#eef4f7; }
+    .badge { display:inline-block; margin:2px 4px 2px 0; padding:2px 8px; border:1px solid var(--line); border-radius:999px; font-size:.85rem; background:#fff; }
+    footer { margin-top:28px; color:var(--muted); font-size:.95rem; }
+    @media (max-width:800px) {
+      main { padding:20px 12px 40px; }
+      table { display:block; overflow-x:auto; }
+    }
+    @media print {
+      body { background:#fff; }
+      nav a { border:none; padding:0; margin-right:8px; }
+      .boundary, .ok { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="muted">Grok annotation: HTML shell created by Grok on 2026-07-20. Fill from priority_papers.md and fulltext_acquisition.csv.</p>
+    <h1>优先全文文献 / Priority Papers</h1>
+    <p class="muted">Select 3–8 decision-critical papers. Attempt lawful OA-first acquisition only.</p>
+  </header>
+
+  <nav aria-label="Local navigation">
+    <a href="./html_delivery_checklist.md">交付清单 / Checklist</a>
+    <a href="./core_papers_page.html">核心文献 / Core</a>
+    <a href="./priority_papers_page.html">优先全文 / Priority</a>
+    <a href="./priority_papers.md">权威 Markdown</a>
+    <a href="./FULLTEXT_MANUAL_ACTION_REQUIRED.md">人工队列</a>
+  </nav>
+
+  <section class="boundary" id="evidence-boundary">
+    <h2>证据边界与合法获取 / Evidence boundary and lawful access</h2>
+    <p>只使用开放获取、机构已授权、作者可共享手稿或图书馆正规申请。禁止任何付费墙绕过描述。无法获取的全文进入人工队列，并以 <span class="badge">uncertainty</span> 标记依赖该全文的论断。</p>
+    <p>Use open access, already-authorized institutional access, permitted author manuscripts, or formal library requests only. Never describe paywall bypass. Queue inaccessible items and mark dependent claims as uncertainty.</p>
+  </section>
+
+  <section id="priority-table">
+    <h2>优先表 / Priority table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Merged ID</th>
+          <th>Title</th>
+          <th>Year</th>
+          <th>Why priority</th>
+          <th>Acquisition plan</th>
+          <th>Deep-read status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>M001</td>
+          <td>{{title}}</td>
+          <td>{{year}}</td>
+          <td>{{reason}}</td>
+          <td>oa_first | institutional | manual_queue</td>
+          <td>pending | complete | blocked</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="ok" id="acquisition-summary">
+    <h2>获取摘要 / Acquisition summary</h2>
+    <table>
+      <thead><tr><th>Metric</th><th>Target</th><th>Actual</th></tr></thead>
+      <tbody>
+        <tr><td>Priority count</td><td>3–8</td><td>{{n}}</td></tr>
+        <tr><td>OA or lawful full text acquired</td><td>as available</td><td>{{n}}</td></tr>
+        <tr><td>Manual-action open items</td><td>0 preferred</td><td>{{n}}</td></tr>
+        <tr><td>Deep-read reports complete</td><td>one per readable paper</td><td>{{n}}</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>Source artifacts: <code>priority_papers.md</code>, <code>fulltext_acquisition.csv</code>, <code>FULLTEXT_MANUAL_ACTION_REQUIRED.md</code>, <code>deep_read_report.md</code>.</p>
+  </footer>
+</main>
+</body>
+</html>

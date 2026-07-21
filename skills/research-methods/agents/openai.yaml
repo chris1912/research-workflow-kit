@@ -1,8 +1,8 @@
 interface:
   display_name: "Research Methods"
-  short_description: "Structured research design and integrity gates"
+  short_description: "Essential Core methods routing and integrity gates"
   brand_color: "#2563EB"
-  default_prompt: "Use $research-methods to map my paper structure and missing evidence."
+  default_prompt: "Use $research-methods to route my methods task and fill the Essential Core templates."
 
 policy:
   allow_implicit_invocation: true

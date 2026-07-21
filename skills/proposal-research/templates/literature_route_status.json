@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "annotation": "Grok template created on 2026-07-20; fill in a user run directory, never commit real run payloads.",
+  "started_at": null,
+  "cutoff_date": null,
+  "primary_route": "available",
+  "secondary_provider": null,
+  "secondary_skill_available": false,
+  "secondary_cli_available": false,
+  "secondary_discovery_ok": false,
+  "secondary_model": null,
+  "selected_mode": "primary_only",
+  "fallback_reason": "secondary_provider_unset",
+  "blind_discovery_completed": false,
+  "merge_completed": false,
+  "artifacts": {
+    "primary_candidate_pool": "candidate_literature_pool.csv",
+    "secondary_candidate_pool": null,
+    "primary_core_papers": "core_papers.md",
+    "secondary_core_papers": null,
+    "merged_core_papers": "MERGED_CORE_PAPERS.md",
+    "priority_papers": "priority_papers.md",
+    "fulltext_acquisition_log": "fulltext_acquisition.csv",
+    "manual_action_queue": "FULLTEXT_MANUAL_ACTION_REQUIRED.md"
+  },
+  "counts": {
+    "primary_candidates": null,
+    "secondary_candidates": null,
+    "union_candidates": null,
+    "merged_core": null,
+    "priority_selected": null
+  },
+  "notes": "secondary_provider may be null, grok, or another independent provider. Primary route must complete when any secondary capability is unavailable."
+}

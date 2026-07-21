@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Merged Core Papers | 合并核心文献</title>
+  <style>
+    :root { --ink:#17212b; --muted:#5c6b73; --line:#d8e0e5; --blue:#1769aa; --amber:#b45309; --paper:#f7fafc; --card:#fff; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.65 system-ui,"Segoe UI","Microsoft YaHei",sans-serif; }
+    main { max-width:1100px; margin:0 auto; padding:28px 18px 56px; }
+    header { border-bottom:2px solid var(--ink); padding-bottom:14px; margin-bottom:18px; }
+    h1 { margin:0 0 8px; font-size:clamp(1.6rem,4vw,2.2rem); line-height:1.15; }
+    h2 { margin:28px 0 10px; font-size:1.25rem; }
+    p { margin:8px 0; }
+    .muted { color:var(--muted); }
+    .boundary { border-left:4px solid var(--amber); background:var(--card); padding:12px 14px; margin:16px 0; }
+    nav { display:flex; flex-wrap:wrap; gap:10px; margin:14px 0; }
+    nav a { color:var(--blue); text-decoration:none; border:1px solid var(--line); background:var(--card); padding:6px 10px; border-radius:999px; }
+    table { width:100%; border-collapse:collapse; background:var(--card); margin:12px 0; }
+    th, td { border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top; }
+    th { background:#eef4f7; }
+    .badge { display:inline-block; margin:2px 4px 2px 0; padding:2px 8px; border:1px solid var(--line); border-radius:999px; font-size:.85rem; background:#fff; }
+    footer { margin-top:28px; color:var(--muted); font-size:.95rem; }
+    @media (max-width:800px) {
+      main { padding:20px 12px 40px; }
+      table { display:block; overflow-x:auto; }
+    }
+    @media print {
+      body { background:#fff; }
+      nav a { border:none; padding:0; margin-right:8px; }
+      .boundary { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="muted">Grok annotation: HTML shell created by Grok on 2026-07-20. Fill from MERGED_CORE_PAPERS.md in a user run directory.</p>
+    <h1>合并核心文献 / Merged Core Papers</h1>
+    <p class="muted">Markdown authority: <code>MERGED_CORE_PAPERS.md</code>. This page is a delivery view only.</p>
+  </header>
+
+  <nav aria-label="Local navigation">
+    <a href="./html_delivery_checklist.md">交付清单 / Checklist</a>
+    <a href="./core_papers_page.html">核心文献 / Core</a>
+    <a href="./priority_papers_page.html">优先全文 / Priority</a>
+    <a href="./MERGED_CORE_PAPERS.md">权威 Markdown</a>
+  </nav>
+
+  <section class="boundary" id="evidence-boundary">
+    <h2>证据边界 / Evidence boundary</h2>
+    <p>区分 <span class="badge">claim</span> <span class="badge">extract</span> <span class="badge">inference</span> <span class="badge">uncertainty</span>。未获取全文的条目不得写成已核验摘录。HTML 不覆盖 Markdown 权威性。</p>
+    <p>Separate claim, extract, inference, and uncertainty. Do not present inaccessible full text as verified extracts. HTML does not override Markdown authority.</p>
+  </section>
+
+  <section id="route-status">
+    <h2>路由结果 / Route outcome</h2>
+    <table>
+      <thead><tr><th>Field</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>selected_mode</td><td>{{primary_only | primary_secondary_parallel | primary_only_after_secondary_failure}}</td></tr>
+        <tr><td>secondary_provider</td><td>{{null | grok | other}}</td></tr>
+        <tr><td>merged_core_count</td><td>{{n}}</td></tr>
+        <tr><td>fallback_reason</td><td>{{reason or empty}}</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="merged-core-table">
+    <h2>合并核心表 / Merged core table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Year</th>
+          <th>DOI / URL</th>
+          <th>Provenance</th>
+          <th>Evidence level</th>
+          <th>Why core</th>
+          <th>Full-text status</th>
+          <th>Priority?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>M001</td>
+          <td>{{title}}</td>
+          <td>{{year}}</td>
+          <td>{{doi_or_url}}</td>
+          <td>both | primary_only | secondary_only</td>
+          <td>claim | extract | inference | uncertainty</td>
+          <td>{{reason}}</td>
+          <td>not_attempted | oa_acquired | paywalled_manual | unavailable</td>
+          <td>yes | no</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>Replace placeholder rows with run data. Keep relative links local to the run directory. No private absolute machine paths in publishable copies.</p>
+  </footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "description": "Essential Core read-only announce hooks",
+  "hooks": [
+    {
+      "event": "agent-start",
+      "command": "python skills/research-methods/runtime/scripts/essential_hook.py announce --event agent-start --json",
+      "read_only": true,
+      "network": false,
+      "mutate_filesystem": false,
+      "emit_secrets": false
+    },
+    {
+      "event": "agent-stop",
+      "command": "python skills/research-methods/runtime/scripts/essential_hook.py announce --event agent-stop --json",
+      "read_only": true,
+      "network": false,
+      "mutate_filesystem": false,
+      "emit_secrets": false
+    },
+    {
+      "event": "tool-announce",
+      "command": "python skills/research-methods/runtime/scripts/essential_hook.py announce --event tool-announce --json",
+      "read_only": true,
+      "network": false,
+      "mutate_filesystem": false,
+      "emit_secrets": false
+    }
+  ],
+  "boundaries": {
+    "no_network": true,
+    "no_secret_echo": true,
+    "no_mutation": true,
+    "no_git_writes": true
+  }
+}

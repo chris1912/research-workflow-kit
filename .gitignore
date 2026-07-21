@@ -37,3 +37,5 @@ Thumbs.db
 .idea/
 .vscode/
 
+# Local agent run evidence (Codex annotation: added 2026-07-20)
+.codex/grok-runs/

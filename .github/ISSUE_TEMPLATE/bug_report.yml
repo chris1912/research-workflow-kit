@@ -1,32 +1,39 @@
-name: Bug report
-description: Report a reproducible problem in the workflow kit.
+name: Bug report / 缺陷报告
+description: Report a reproducible problem in the workflow kit. / 报告可复现问题。
 title: "[Bug]: "
 labels: ["bug"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include credentials, private manuscripts, personal/health data, or unpublished results.
+        请勿包含凭据、未发表手稿、个人/健康数据或未公开结果。
+        Security issues: use GitHub Security Advisories, not public issues.
+        安全问题请使用 GitHub Security Advisories，勿开公开议题。
   - type: textarea
     id: summary
     attributes:
-      label: Summary
-      description: What happened?
+      label: Summary / 摘要
+      description: What happened? / 发生了什么？
     validations:
       required: true
   - type: textarea
     id: reproduce
     attributes:
-      label: Reproduction steps
-      description: Include the command, input shape, and expected result without sharing private data.
+      label: Reproduction steps / 复现步骤
+      description: Command, input shape, and expected result without private data. / 命令、输入形态与期望结果；勿含隐私数据。
     validations:
       required: true
   - type: input
     id: version
     attributes:
-      label: Version or commit
+      label: Version or commit / 版本或提交
     validations:
       required: true
   - type: checkboxes
     id: safety
     attributes:
-      label: Safety check
+      label: Safety check / 安全确认
       options:
-        - label: I removed credentials and personal research data from this report.
+        - label: I removed credentials, private manuscripts, personal/health data, and unpublished results from this report. / 我已从本报告中移除凭据、未发表手稿、个人/健康数据与未公开结果。
           required: true

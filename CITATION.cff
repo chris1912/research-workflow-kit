@@ -5,6 +5,12 @@ type: software
 authors:
   - family-names: "Research Workflow Kit"
     given-names: "Contributors"
-version: "0.1.0"
-date-released: "2026-07-15"
+version: "0.2.0"
+date-released: "2026-07-20"
 license: MIT
+repository-code: "https://github.com/chris1912/research-workflow-kit"
+url: "https://github.com/chris1912/research-workflow-kit"
+abstract: >-
+  A lightweight, provenance-aware research workflow kit with optional dual-route
+  literature discovery, merged-core authority, lawful priority full text,
+  a thin research-methods router, and an HTML delivery gate for conclusion-bearing runs.

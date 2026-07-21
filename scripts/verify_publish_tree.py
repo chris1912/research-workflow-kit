@@ -1,6 +1,7 @@
 """Check that a publish candidate contains no local-only artifacts.
 
 Codex annotation: Created by Codex on 2026-07-15.
+Grok annotation: Skip only gitignored `.codex/grok-runs/` agent-run evidence on 2026-07-20.
 """
 
 from pathlib import Path
@@ -17,12 +18,27 @@ SECRET_ASSIGNMENT = re.compile(
 )
 
 
+def _is_skipped_path(relative: Path) -> bool:
+    """Return True only for paths excluded from publication scanning.
+
+    Aligns with `.gitignore`: skip `.git/**` and `.codex/grok-runs/**`.
+    Other `.codex/**` content remains scannable.
+    """
+    parts = relative.parts
+    if ".git" in parts:
+        return True
+    for index, part in enumerate(parts):
+        if part == ".codex" and index + 1 < len(parts) and parts[index + 1] == "grok-runs":
+            return True
+    return False
+
+
 def iter_files(root: Path) -> list[Path]:
     """Return regular files below a candidate root in stable order."""
     return sorted(
         path
         for path in root.rglob("*")
-        if path.is_file() and ".git" not in path.relative_to(root).parts
+        if path.is_file() and not _is_skipped_path(path.relative_to(root))
     )
 
 

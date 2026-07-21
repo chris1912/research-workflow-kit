@@ -33,44 +33,53 @@
     ul { margin:8px 0 0 20px; padding:0; }
     a { color:var(--blue); }
     @media (max-width:800px) { .route,.grid { grid-template-columns:1fr; } main { padding:22px 14px 48px; } table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media print { body { background:#fff; } .stage, .panel { break-inside:avoid; } }
   </style>
 </head>
 <body>
 <main>
   <header>
-    <div class="eyebrow">Codex 架构审计 · 2026-07-15</div>
+    <div class="eyebrow">架构路线图 · updated 2026-07-20</div>
     <h1>Research Workflow Kit</h1>
-    <p class="lede">这份路线图把分散的科研工具、研究技能、写作模块和质量检查整理成可追溯、可替换、适合公开发布的工作流层。</p>
-    <p><span class="badge">旁路发布候选</span><span class="badge">不带虚拟环境</span><span class="badge">可选后端</span><span class="badge">许可证可追溯</span></p>
+    <p class="lede">这份路线图把分散的科研工具、研究技能、写作模块和质量检查整理成可追溯、可替换、适合公开发布的工作流层，并纳入可选双路由文献发现、合并核心权威、优先全文与结论型 HTML 交付合约。</p>
+    <p class="lede">Grok annotation: Route stages refreshed by Grok on 2026-07-20. Codex annotation: original roadmap 2026-07-15.</p>
+    <p><span class="badge">旁路发布候选</span><span class="badge">不带虚拟环境</span><span class="badge">可选后端</span><span class="badge">可选第二路由</span><span class="badge">许可证可追溯</span></p>
   </header>
 
   <h2>工作流主路线</h2>
   <section class="route" aria-label="科研工作流路线">
     <div class="stage"><h3>01 研究指南与问题</h3><small>拆解目标、边界、约束和候选方向。</small></div>
-    <div class="stage"><h3>02 文献发现</h3><small>检索候选来源、元数据和开放获取入口。</small></div>
-    <div class="stage"><h3>03 文档解析</h3><small>把 PDF、DOCX 和图像转成可审计结构化文本。</small></div>
-    <div class="stage"><h3>04 证据组织</h3><small>语料库问答、证据卡、反证和领域地图。</small></div>
-    <div class="stage"><h3>05 深度研究综合</h3><small>区分证据、推断、不确定性和研究设计。</small></div>
-    <div class="stage"><h3>06 长文起草</h3><small>搭建章节结构，把证据放到对应段落。</small></div>
-    <div class="stage"><h3>07 学术润色</h3><small>处理中英文表达、术语一致性和审稿回复。</small></div>
-    <div class="stage"><h3>08 Vale 风格检查</h3><small>检查模板化连接词、空泛强调和过度声称。</small></div>
-    <div class="stage"><h3>09 GitHub/Word/PDF 发布</h3><small>整理 Markdown、文档包、引用和致谢。</small></div>
+    <div class="stage"><h3>02 检索策略与预检</h3><small>关键词、收敛门槛、literature_route_status。</small></div>
+    <div class="stage"><h3>03 文献发现</h3><small>主路由必做；可选盲法第二路由。</small></div>
+    <div class="stage"><h3>04 合并核心与优先全文</h3><small>MERGED_CORE_PAPERS 权威；3–8 OA-first。</small></div>
+    <div class="stage"><h3>05 文档解析</h3><small>把 PDF、DOCX 和图像转成可审计结构化文本。</small></div>
+    <div class="stage"><h3>06 证据组织</h3><small>证据卡、反证、领域地图；claim/extract/inference/uncertainty。</small></div>
+    <div class="stage"><h3>07 深度研究综合</h3><small>区分证据、推断、不确定性和研究设计。</small></div>
+    <div class="stage"><h3>08 长文起草与润色</h3><small>章节结构、段落润色、术语一致。</small></div>
+    <div class="stage"><h3>09 Vale 与 HTML 交付</h3><small>风格检查；结论型入口页 + 3–8 决策页。</small></div>
+    <div class="stage"><h3>10 打包与人工确认</h3><small>Markdown 权威；Word/PDF 可选导出。</small></div>
   </section>
 
   <h2>公共层与可选层</h2>
   <div class="grid">
-    <section class="panel ok"><h3>公共层：随仓库上传</h3><ul><li><code>src/workflow_lab</code>：统一适配器、稳定结果契约和无依赖 CLI。</li><li><code>skills</code>：路由、申报书、研究方法、长文、学术编辑和 prose lint 入口。</li><li><code>docs</code>：路线图、安装、工作流、依赖、来源和许可证边界。</li><li>Vale 中文规则、格式化器和脱敏最小示例。</li></ul></section>
-    <section class="panel"><h3>可选层：由用户本地安装</h3><ul><li>文献发现与开放获取检索后端。</li><li>高质量文档解析后端。</li><li>本地语料库问答后端。</li><li>文献计量与领域地图后端。</li><li>联网深度研究与模型后端。</li><li>Vale 可执行文件和模型缓存。</li></ul></section>
+    <section class="panel ok"><h3>公共层：随仓库上传</h3><ul><li><code>src/workflow_lab</code>：统一适配器、稳定结果契约和无依赖 CLI。</li><li><code>skills</code>：路由、申报书、研究方法、长文、学术编辑和 prose lint 入口。</li><li>proposal-research 合约模板：双路由状态、合并核心、优先全文、HTML shell。</li><li><code>docs</code>：启动手册、路线图、安装、工作流、依赖、来源和许可证边界。</li><li>Vale 中文规则、格式化器和脱敏最小示例。</li></ul></section>
+    <section class="panel"><h3>可选层：由用户本地安装</h3><ul><li>文献发现与开放获取检索后端。</li><li>独立第二路由提供方（可为 Grok 或其他，非必需）。</li><li>高质量文档解析后端。</li><li>本地语料库问答后端。</li><li>文献计量与领域地图后端。</li><li>联网深度研究与模型后端。</li><li>Vale 可执行文件和模型缓存。</li></ul></section>
+  </div>
+
+  <h2>证据层双路由与交付层</h2>
+  <div class="grid">
+    <section class="panel"><h3>Evidence layer</h3><p>Primary discovery always completes. Secondary is optional coverage only. Blind pools, then normalize DOI/title/year, dedupe, compare omissions, re-screen, and write <code>MERGED_CORE_PAPERS.md</code>.</p></section>
+    <section class="panel"><h3>Delivery layer</h3><p>Markdown/CSV/JSON remain authoritative. Conclusion-bearing runs add UTF-8 HTML entry navigation, 3–8 decision pages, evidence-boundary text, and local-link checks.</p></section>
   </div>
 
   <h2>旧目录到公共目录</h2>
   <table>
     <thead><tr><th>公共别名</th><th>公共位置</th><th>职责</th><th>处理方式</th></tr></thead>
     <tbody>
-      <tr><td>workflow-router</td><td><code>skills/workflow-router</code></td><td>全局路由和入口说明</td><td>第一方重写，移除机器路径和旧入口名。</td></tr>
-      <tr><td>proposal-research</td><td><code>skills/proposal-research</code></td><td>指南优先的申报书深度研究</td><td>第一方入口，保留证据边界和人工确认门。</td></tr>
+      <tr><td>workflow-router</td><td><code>skills/workflow-router</code></td><td>全局路由和入口说明</td><td>第一方重写，移除机器路径和旧入口名；含双路由与 HTML 门禁说明。</td></tr>
+      <tr><td>proposal-research</td><td><code>skills/proposal-research</code></td><td>指南优先的申报书深度研究</td><td>第一方入口，保留证据边界、合并核心、优先全文与人工确认门。</td></tr>
       <tr><td>proposal-iteration</td><td><code>skills/proposal-iteration</code></td><td>诊断、迭代和证据复核</td><td>第一方入口，输出版本化修订记录。</td></tr>
-      <tr><td>research-methods</td><td><code>skills/research-methods</code></td><td>研究问题、协议、评审和完整性</td><td>中性入口包住上游材料，保留原许可证和 commit。</td></tr>
+      <tr><td>research-methods</td><td><code>skills/research-methods</code></td><td>研究问题、协议、评审和完整性</td><td>第一方 Essential Core（<code>essential_core</code>）：合约、模式注册、模板与可选离线 runtime；E2–E3 协议深度为 <code>parity: partial</code>；E4 管线/实验仍为 <code>parity: not_started</code>；部分深度不等于完整 ARS 对等；完整上游套件为可选外部材料，不再捆绑 ars/codex 正文。</td></tr>
       <tr><td>longform-writing</td><td><code>skills/longform-writing</code></td><td>长文结构和章节起草</td><td>物化技能，去掉嵌套仓库和虚拟环境。</td></tr>
       <tr><td>academic-editing</td><td><code>skills/academic-editing</code></td><td>段落级学术润色</td><td>物化技能，保留 MIT 来源文本和修改说明。</td></tr>
       <tr><td>prose-lint</td><td><code>skills/prose-lint</code></td><td>Vale 规则选择和边界说明</td><td>第一方入口，执行器保持外部依赖。</td></tr>
@@ -83,10 +92,10 @@
 
   <h2>迁移里程碑</h2>
   <div class="grid">
-    <section class="panel"><h3>已完成</h3><p>源目录审计、嵌套仓库 commit 清点、许可证风险识别和新的本地快照。</p></section>
-    <section class="panel"><h3>当前交付</h3><p>生成独立候选目录、路线图 HTML、中性技能入口、适配器契约和 GitHub 基础文档。</p></section>
-    <section class="panel"><h3>下一步检查</h3><p>运行 Python 测试、模板解析、静态发布树扫描和浏览器布局检查。</p></section>
-    <section class="panel"><h3>暂不执行</h3><p>不提交、不推送、不下载 MinerU 模型、不运行真实联网问答，也不带入真实申请材料。</p></section>
+    <section class="panel"><h3>已完成</h3><p>源目录审计、嵌套仓库 commit 清点、许可证风险识别、公共快照与 GitHub 发布基线。</p></section>
+    <section class="panel"><h3>当前交付</h3><p>Essential Core E0–E3：65 文件第一方 methods 包（合约、注册表、模板、双 agent 面、可选 runtime）；E2–E3 六个协议体为 <code>parity: partial</code>；E4 三个协议体仍为 <code>parity: not_started</code>；部分深度不是完整 ARS 对等；上游 ARS 套件为可选外部。</p></section>
+    <section class="panel"><h3>下一步检查</h3><p>E3-D 包装一致性收口后进入 E4 管线/实验深度；发布前仍需独立审计与提交策略。历史说明：E0/E1 基线与 E2 方法深度已完成并独立验收。</p></section>
+    <section class="panel"><h3>暂不执行</h3><p>不提交、不推送、不安装新依赖、不复制私有运行产物，也不自动下载外部方法套件。</p></section>
   </div>
 
   <h2>审阅入口</h2>

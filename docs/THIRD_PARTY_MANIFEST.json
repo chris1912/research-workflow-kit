@@ -1,12 +1,16 @@
 {
   "generated_by": "Codex",
   "generated_at": "2026-07-15",
+  "updated_by": "Grok",
+  "updated_at": "2026-07-21",
+  "updated_note": "Essential Core E3-D packaging consistency: E2-E3 protocol depth partial; E4 not_started",
   "first_party_license": "MIT",
   "first_party_paths": [
     "src/workflow_lab",
     "skills/workflow-router",
     "skills/proposal-research",
     "skills/proposal-iteration",
+    "skills/research-methods",
     "skills/prose-lint",
     "src/workflow_lab/config/vale"
   ],
@@ -31,9 +35,23 @@
       "url": "https://github.com/Imbad0202/academic-research-skills-codex.git",
       "commit": "8626ccb54ef73b620e67ac80107a56a6b65b180c",
       "license": "CC BY-NC-4.0",
-      "mode": "bundled-skill",
-      "included_paths": ["skills/research-methods"],
-      "modifications": "Materialized the skill junction under a neutral public alias; upstream content and license remain identifiable."
+      "mode": "optional-external",
+      "bundled": false,
+      "included_paths": [],
+      "related_first_party_paths": [
+        "skills/research-methods/SKILL.md",
+        "skills/research-methods/manifest.json",
+        "skills/research-methods/NOTICE.md",
+        "skills/research-methods/LINEAGE_INDEX.md",
+        "skills/research-methods/core",
+        "skills/research-methods/runtime",
+        "skills/research-methods/agents/openai.yaml"
+      ],
+      "retained_license_texts": [
+        "docs/licenses/academic-research-skills-license.txt"
+      ],
+      "authoritative_upstream": "https://github.com/Imbad0202/academic-research-skills",
+      "modifications": "Stage D (2026-07-20): removed vendored ars/ and codex/ bodies. Essential Core E0+E1 (2026-07-20): first-party essential_core packaging with contracts, mode registry, templates, dual agent surfaces, and opt-in offline runtime. E2 (2026-07-20) and E3-A/B/C (2026-07-20) deepened six protocol bodies to parity: partial; E4 pipeline/experiment/optional_runtime remain parity: not_started as of E3-D packaging closeout (2026-07-21). Not a full ARS tree restore. Partial depth is not full ARS behavioral parity. Full suite remains optional external, not a required runtime, not auto-installed."
     },
     {
       "alias": "academic-editing",

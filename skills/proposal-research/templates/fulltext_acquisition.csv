@@ -1,0 +1,2 @@
+attempt_id,merged_id,title,year,doi,url,priority_rank,channel,result,local_path_or_note,attempted_at,operator,next_action
+A001,M001,Example placeholder title,2024,10.0000/example,https://example.invalid/oa,1,publisher_oa|repository_oa|institutional|author_manuscript|manual_library|other,oa_acquired|paywalled|not_found|error|skipped,leave blank or user-run relative path only,2026-07-20T00:00:00Z,agent|human,deep_read|manual_queue|retry|stop
