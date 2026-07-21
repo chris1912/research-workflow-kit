@@ -456,6 +456,19 @@ Codex annotation: Final local acceptance completed by Codex on 2026-07-20.
   credentials, or full-runtime assumptions. Allowed-path edit only; no source,
   skills, tests, or remote-state changes in this stage.
 
+## 2026-07-22 Project-level lite skill router
+
+- Added `skills/scientific-workflow-lab-lite/SKILL.md` as this lightweight
+  kit's project-level callable router. It is deliberately named separately
+  from the full-lab `scientific-workflow-lab` skill and does not modify it.
+- Added `skills/scientific-workflow-lab-lite/agents/openai.yaml` so hosts that
+  support project-local skill metadata can discover or implicitly invoke
+  `$scientific-workflow-lab-lite`.
+- Updated the root entry, detailed teaching manual, README, architecture
+  roadmap, architecture notes, and AGENTS guidance to distinguish this lite
+  router from the full-lab skill and the seven specialist skills; documented
+  the fallback when a host cannot load repository skills.
+
 ## Update rule
 
 Update this file when the public tree, route order, provenance policy, or

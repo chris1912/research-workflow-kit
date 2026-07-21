@@ -10,6 +10,10 @@ for the detailed route guide before routing a research task. Keep evidence bound
 third-party attribution intact. Do not add credentials or personal research
 artifacts. Run the smallest relevant test before making a completion claim.
 
+The project-level lite router is [`skills/scientific-workflow-lab-lite/SKILL.md`](skills/scientific-workflow-lab-lite/SKILL.md);
+use `$scientific-workflow-lab-lite` when the host supports repository-local skills,
+then hand off to one specialist contract under `skills/`.
+
 ## Upgraded public gates
 
 - Prefer repository-relative links only in tracked files.

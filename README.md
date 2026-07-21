@@ -44,6 +44,9 @@ question -> search strategy -> optional dual-route preflight
 
 - Neutral public skills for routing, proposal deep research, methods entry,
   long-form writing, academic editing, and prose lint.
+- Project-level `$scientific-workflow-lab-lite` router with an explicit specialist
+  hand-off contract; hosts that support project-local skills may invoke it
+  directly.
 - Explicit evidence states: claim / extract / inference / uncertainty.
 - Optional dual-route literature discovery with provider-neutral `secondary_*`
   fields; primary route completes when secondary is unset.
@@ -64,6 +67,7 @@ question -> search strategy -> optional dual-route preflight
 **中文**
 
 - 中立公开技能：路由、开题深研、方法入口、长文写作、学术编辑、文风检查。
+- 项目级 `$scientific-workflow-lab-lite` 总路由：先判断阶段，再交给对应专业技能；支持项目级技能的宿主可直接调用，不影响完整版 `scientific-workflow-lab`。
 - 明确证据状态：主张 / 摘录 / 推断 / 不确定。
 - 可选双路线文献发现（提供商中立的 `secondary_*` 字段）；次路线未配置时主路线仍可完成。
 - 收敛后以 `MERGED_CORE_PAPERS.md` 为唯一下游权威；`core_papers.md` 仅作合并前或单路线兼容模板。
@@ -108,8 +112,9 @@ python -m workflow_lab --help
 **English**
 
 1. Open [`SCIENTIFIC_WORKFLOW_START_HERE.html`](SCIENTIFIC_WORKFLOW_START_HERE.html) before routing a task; use [`docs/START_HERE.html`](docs/START_HERE.html) for the detailed teaching manual (skills, prompts, artifacts, gates).
-2. Follow skill contracts under `skills/` for proposal research, methods entry,
-   long-form writing, academic editing, and prose lint.
+2. Invoke `$scientific-workflow-lab-lite` when the stage is unclear, then follow the
+   selected specialist contract under `skills/` for proposal research, methods,
+   long-form writing, academic editing, or prose lint.
 3. Record optional secondary discovery fallbacks in `literature_route_status.json`.
 4. After dual-route convergence, treat `MERGED_CORE_PAPERS.md` as the sole
    downstream authority.
@@ -120,7 +125,7 @@ python -m workflow_lab --help
 **中文**
 
 1. 路由任务前先打开 [`SCIENTIFIC_WORKFLOW_START_HERE.html`](SCIENTIFIC_WORKFLOW_START_HERE.html)，需要细节时再打开 [`docs/START_HERE.html`](docs/START_HERE.html) 详细教学手册（技能、示例请求、产物与门禁）。
-2. 按 `skills/` 下契约执行开题研究、方法入口、长文写作、学术编辑与文风检查。
+2. 阶段不明时调用 `$scientific-workflow-lab-lite` 总路由，再按它选择的 `skills/` 专业契约执行开题研究、方法入口、长文写作、学术编辑与文风检查；它与完整版 `scientific-workflow-lab` 分开。
 3. 将可选次路线回退原因记入 `literature_route_status.json`。
 4. 双路线收敛后，以 `MERGED_CORE_PAPERS.md` 为唯一下游权威。
 5. 优先全文：选 3–8 篇，合法 OA 优先获取，可读文本深读，失败则进入人工队列。
@@ -182,7 +187,9 @@ Advisories for `chris1912/research-workflow-kit` rather than public issues. See
 ## What is included / 包含内容
 
 - `src/workflow_lab/`: first-party adapters and dependency-free CLI.
-- `skills/`: router, proposal, research-methods, writing, editing, prose-lint.
+- `skills/scientific-workflow-lab-lite/`: project-level lite router and host metadata.
+- `skills/`: specialist routers and contracts for proposal, research-methods,
+  writing, editing, and prose-lint.
 - `skills/proposal-research/templates/`: route status, merged core, priority full
   text, and HTML delivery contracts.
 - `src/workflow_lab/config/vale/`: project Vale rules and profiles.

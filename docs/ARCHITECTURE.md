@@ -68,7 +68,11 @@ not require new runtime backends.
 
 ## Public aliases
 
-The public skill names are intentionally neutral. The complete mapping to
+The project-level `skills/scientific-workflow-lab-lite` skill is the public
+entry
+router. It selects one specialist contract and keeps the host-facing invocation
+separate from the individual skill names. The public skill names are
+intentionally neutral. The complete mapping to
 upstream repositories, licenses, commits, and included paths is maintained in
 `docs/THIRD_PARTY_MANIFEST.json`.
 

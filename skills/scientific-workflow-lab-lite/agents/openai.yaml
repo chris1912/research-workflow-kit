@@ -1,0 +1,8 @@
+interface:
+  display_name: "Scientific Workflow Lab (Public Lite)"
+  short_description: "Route the lightweight research workflow and evidence gates"
+  brand_color: "#1769AA"
+  default_prompt: "Use $scientific-workflow-lab-lite to route my lightweight research task, choose the right specialist skill, and state evidence and delivery gates."
+
+policy:
+  allow_implicit_invocation: true

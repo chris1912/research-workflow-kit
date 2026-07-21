@@ -395,7 +395,7 @@
       <header class="hero">
         <div class="badge-row">
           <span class="badge">公开轻量包</span>
-          <span class="badge">7 个一级 Skills</span>
+          <span class="badge">1 个项目路由 + 7 个专业 Skills</span>
           <span class="badge">可选双路线</span>
           <span class="badge">MERGED_CORE 权威</span>
           <span class="badge">OA-first 全文</span>
@@ -411,7 +411,7 @@
       <section id="overview" class="content">
         <span class="kicker">OVERVIEW</span>
         <h2>1. 用途、受众与公开包边界</h2>
-        <p class="lead">Research Workflow Kit 是一套<strong>可追溯的研究编排层</strong>：把研究问题路由到文献发现、证据处理、综合、长文起草、学术编辑与文风检查。它帮助新研究者知道该用哪个 skill、期望哪些文件、何时必须停下来做人工确认。</p>
+        <p class="lead">Research Workflow Kit 是一套<strong>可追溯的研究编排层</strong>：把研究问题路由到文献发现、证据处理、综合、长文起草、学术编辑与文风检查。它帮助新研究者知道该用哪个 skill、期望哪些文件、何时必须停下来做人工确认。本项目入口是 <code>$scientific-workflow-lab-lite</code>，与完整版 <code>$scientific-workflow-lab</code> 分开。</p>
         <div class="grid">
           <div class="card">
             <h3>做什么</h3>
@@ -516,7 +516,21 @@
       <section id="skills" class="content">
         <span class="kicker">SKILLS</span>
         <h2>4. 一级技能：何时用、输入、输出、示例</h2>
-        <p class="lead">以下技能均存在于本仓库 <code>skills/</code>。示例请求使用中文，可直接复制到代理会话；方括号替换为实际材料。</p>
+        <p class="lead">本仓库提供 1 个项目级总路由和 7 个专业技能。示例请求使用中文，可直接复制到代理会话；方括号替换为实际材料。</p>
+
+        <details class="skill" open>
+          <summary>4.0 scientific-workflow-lab-lite — 本项目轻量级总路由</summary>
+          <div class="body">
+            <p><strong>何时使用：</strong>用户不知道选哪个 skill、任务跨多个阶段，或希望先看到完整研究路线、证据边界和交付门禁时。</p>
+            <div class="skill-meta">
+              <div><strong>期望输入</strong>研究目标、已有材料、联网/后端限制、输出格式和人工确认要求</div>
+              <div><strong>核心动作</strong>读取项目入口与本手册，判断阶段，再把任务交给 workflow-router、proposal-research、research-methods、proposal-iteration、longform-writing、academic-editing 或 prose-lint</div>
+              <div><strong>关键输出</strong>选定路线、必做/可选步骤、证据边界、预期产物、风险和下一个人工决策点</div>
+            </div>
+            <p><strong>中文示例：</strong>「请使用 <code>$scientific-workflow-lab-lite</code>。我的目标是：[目标]，已有材料：[材料]。先判断阶段、选择专业 skill、说明证据边界与交付门禁，不要直接编造结论。」</p>
+            <p>项目契约：<a href="../skills/scientific-workflow-lab-lite/SKILL.md">skills/scientific-workflow-lab-lite/SKILL.md</a> · 宿主元数据：<a href="../skills/scientific-workflow-lab-lite/agents/openai.yaml">agents/openai.yaml</a></p>
+          </div>
+        </details>
 
         <details class="skill" open>
           <summary>4.1 workflow-router — 全局路由</summary>
