@@ -24,7 +24,7 @@ backends are never required.
 ## Start here / 入口
 
 - Lightweight project entry / 轻量项目入口: [`SCIENTIFIC_WORKFLOW_START_HERE.html`](SCIENTIFIC_WORKFLOW_START_HERE.html)
-- Detailed visual route guide / 详细可视化路由指南: [`docs/START_HERE.html`](docs/START_HERE.html)
+- Detailed teaching manual / 详细教学手册: [`docs/START_HERE.html`](docs/START_HERE.html)
 - Architecture map / 架构图: [`docs/ARCHITECTURE_ROADMAP.html`](docs/ARCHITECTURE_ROADMAP.html)
 
 Default route / 默认路径:
@@ -107,7 +107,7 @@ python -m workflow_lab --help
 
 **English**
 
-1. Open [`SCIENTIFIC_WORKFLOW_START_HERE.html`](SCIENTIFIC_WORKFLOW_START_HERE.html) before routing a task; use [`docs/START_HERE.html`](docs/START_HERE.html) for the detailed guide.
+1. Open [`SCIENTIFIC_WORKFLOW_START_HERE.html`](SCIENTIFIC_WORKFLOW_START_HERE.html) before routing a task; use [`docs/START_HERE.html`](docs/START_HERE.html) for the detailed teaching manual (skills, prompts, artifacts, gates).
 2. Follow skill contracts under `skills/` for proposal research, methods entry,
    long-form writing, academic editing, and prose lint.
 3. Record optional secondary discovery fallbacks in `literature_route_status.json`.
@@ -119,7 +119,7 @@ python -m workflow_lab --help
 
 **中文**
 
-1. 路由任务前先打开 [`SCIENTIFIC_WORKFLOW_START_HERE.html`](SCIENTIFIC_WORKFLOW_START_HERE.html)，需要细节时再打开 [`docs/START_HERE.html`](docs/START_HERE.html)。
+1. 路由任务前先打开 [`SCIENTIFIC_WORKFLOW_START_HERE.html`](SCIENTIFIC_WORKFLOW_START_HERE.html)，需要细节时再打开 [`docs/START_HERE.html`](docs/START_HERE.html) 详细教学手册（技能、示例请求、产物与门禁）。
 2. 按 `skills/` 下契约执行开题研究、方法入口、长文写作、学术编辑与文风检查。
 3. 将可选次路线回退原因记入 `literature_route_status.json`。
 4. 双路线收敛后，以 `MERGED_CORE_PAPERS.md` 为唯一下游权威。

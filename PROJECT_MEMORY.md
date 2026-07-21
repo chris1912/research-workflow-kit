@@ -440,6 +440,22 @@ Codex annotation: Final local acceptance completed by Codex on 2026-07-20.
   secondary route, merged-core authority, priority full-text contract, HTML
   delivery gate, and Essential Core parity limits.
 
+## 2026-07-21 Public entry manual rebuild (Grok Stage)
+
+- Rebuilt `SCIENTIFIC_WORKFLOW_START_HERE.html` as a Chinese-first lightweight
+  teaching entry with purpose/audience, public-vs-full-lab difference, skill
+  overview, evidence states, Essential Core limits, setup/verification, and
+  clear routes to `docs/START_HERE.html` and `README.md`.
+- Rebuilt `docs/START_HERE.html` as the detailed project-specific teaching
+  manual: ten-phase route, all seven first-party skills (when/input/output + CN
+  examples), artifact path table, required vs optional gates, evidence/safety
+  rules, Essential Core parity honesty, ≥15 copyable prompts, setup/security/
+  licensing, and repository-relative documentation links.
+- README Start-here wording aligned: “Detailed teaching manual / 详细教学手册”.
+- Conceptual reference only from the sibling full-lab manual; no private paths,
+  credentials, or full-runtime assumptions. Allowed-path edit only; no source,
+  skills, tests, or remote-state changes in this stage.
+
 ## Update rule
 
 Update this file when the public tree, route order, provenance policy, or

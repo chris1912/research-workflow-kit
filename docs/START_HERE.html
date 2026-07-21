@@ -3,169 +3,1049 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research Workflow Kit 详细教学手册：技能、路线、产物、示例请求、证据规则与安装验证。">
   <title>Research Workflow Kit | 启动手册 / Start Here</title>
   <style>
-    :root { --ink:#17212b; --muted:#5c6b73; --line:#d8e0e5; --blue:#1769aa; --teal:#0f766e; --amber:#b45309; --paper:#f7fafc; --card:#fff; }
-    * { box-sizing:border-box; }
-    body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.7 system-ui,"Segoe UI","Microsoft YaHei",sans-serif; }
-    main { max-width:960px; margin:0 auto; padding:32px 18px 64px; }
-    header { border-bottom:2px solid var(--ink); padding-bottom:16px; margin-bottom:18px; }
-    h1 { margin:0 0 10px; font-size:clamp(1.8rem,4.5vw,2.6rem); line-height:1.15; }
-    h2 { margin:0 0 10px; font-size:1.25rem; }
-    h3 { margin:18px 0 8px; font-size:1.05rem; }
-    p { margin:8px 0; }
-    .muted { color:var(--muted); }
-    .eyebrow { color:var(--blue); font-weight:700; letter-spacing:.03em; }
-    section { border:1px solid var(--line); background:var(--card); padding:16px 18px; margin:16px 0; }
-    .boundary { border-left:4px solid var(--amber); }
-    .ok { border-left:4px solid var(--teal); }
-    .route { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:12px; }
-    .stage { border:1px solid var(--line); border-top:4px solid var(--blue); padding:12px; background:#fff; min-height:96px; }
-    .stage:nth-child(3n) { border-top-color:var(--teal); }
-    .stage:nth-child(4n) { border-top-color:var(--amber); }
-    .stage small { display:block; color:var(--muted); }
-    table { width:100%; border-collapse:collapse; background:#fff; margin:10px 0; }
-    th, td { border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top; }
-    th { background:#eef4f7; }
-    code { font-family:Consolas,ui-monospace,monospace; font-size:.92em; }
-    a { color:var(--blue); }
-    ul { margin:8px 0 0 20px; }
-    .badge { display:inline-block; margin:2px 4px 2px 0; padding:2px 8px; border:1px solid var(--line); border-radius:999px; background:#fff; font-size:.85rem; }
-    nav.toc a { display:inline-block; margin:4px 8px 4px 0; }
-    footer { margin-top:28px; color:var(--muted); font-size:.95rem; }
-    @media (max-width:800px) {
-      main { padding:22px 14px 48px; }
-      .route { grid-template-columns:1fr; }
-      table { display:block; overflow-x:auto; }
+    :root {
+      --ink: #17212b;
+      --muted: #5c6b73;
+      --line: #d8e0e5;
+      --blue: #1769aa;
+      --teal: #0f766e;
+      --amber: #b45309;
+      --paper: #f7fafc;
+      --card: #fff;
+      --soft: #eef6f8;
+      --code: #102433;
+      --shadow: 0 10px 28px rgba(23, 33, 43, .06);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 2% 0%, rgba(23,105,170,.10), transparent 28rem),
+        radial-gradient(circle at 98% 0%, rgba(15,118,110,.08), transparent 24rem),
+        var(--paper);
+      font: 16px/1.7 system-ui, "Segoe UI", "Microsoft YaHei", sans-serif;
+    }
+    a { color: var(--blue); }
+    code, pre { font-family: Consolas, "Cascadia Code", ui-monospace, monospace; }
+    code {
+      padding: .08rem .32rem;
+      border-radius: 5px;
+      background: rgba(23, 105, 170, .08);
+      font-size: .92em;
+    }
+    .page {
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 22px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+    .sidebar {
+      position: sticky;
+      top: 14px;
+      height: calc(100vh - 28px);
+      overflow: auto;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.96);
+      box-shadow: var(--shadow);
+    }
+    .brand strong { display: block; font-size: 1.05rem; color: var(--blue); }
+    .brand span { color: var(--muted); font-size: .82rem; }
+    .nav-label {
+      margin: 16px 0 6px;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .sidebar nav a {
+      display: block;
+      margin: 2px 0;
+      padding: 7px 9px;
+      border-radius: 8px;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .9rem;
+    }
+    .sidebar nav a:hover { background: var(--soft); color: var(--blue); }
+    main { min-width: 0; }
+    .hero {
+      padding: 28px 30px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(135deg, #16384f 0%, #1769aa 58%, #0f766e 100%);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+    .hero h1 {
+      margin: 10px 0 12px;
+      font-size: clamp(1.7rem, 3.8vw, 2.5rem);
+      line-height: 1.15;
+    }
+    .hero p { margin: 0 0 10px; color: rgba(255,255,255,.88); }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .badge {
+      padding: 4px 10px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+    .hero pre {
+      margin: 16px 0 0;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(8, 28, 40, .45);
+      border: 1px solid rgba(255,255,255,.16);
+      white-space: pre-wrap;
+      font-size: .86rem;
+      line-height: 1.6;
+    }
+    section.content {
+      margin-top: 18px;
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.96);
+      box-shadow: var(--shadow);
+    }
+    h2 {
+      margin: 0 0 12px;
+      color: #123a56;
+      font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+      line-height: 1.25;
+    }
+    h3 { margin: 18px 0 8px; font-size: 1.05rem; color: #16445f; }
+    h4 { margin: 14px 0 6px; color: var(--amber); font-size: .98rem; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 0 0 12px; padding-left: 1.3rem; }
+    li { margin-bottom: .3rem; }
+    .lead { color: var(--muted); max-width: 980px; }
+    .kicker {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      color: var(--teal);
+      background: #e7f5f2;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+    }
+    .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+    .notice {
+      margin: 12px 0;
+      padding: 12px 14px;
+      border: 1px solid #e3b16a;
+      border-left: 5px solid var(--amber);
+      border-radius: 12px;
+      background: #fff8ec;
+    }
+    .notice.blue {
+      border-color: #9fc3d4;
+      border-left-color: var(--blue);
+      background: #eef6fb;
+    }
+    .notice.danger {
+      border-color: #e4aba0;
+      border-left-color: #b74436;
+      background: #fff1ee;
+    }
+    .route {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .stage {
+      min-height: 92px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--blue);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .stage:nth-child(3n) { border-top-color: var(--teal); }
+    .stage:nth-child(4n) { border-top-color: var(--amber); }
+    .stage strong { display: block; margin-bottom: 4px; color: var(--blue); }
+    .stage small { color: var(--muted); }
+    .table-wrap {
+      width: 100%;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: .92rem;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #eef4f7; }
+    tr:last-child td { border-bottom: 0; }
+    details.skill {
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      overflow: hidden;
+    }
+    details.skill > summary {
+      cursor: pointer;
+      padding: 14px 16px;
+      font-weight: 800;
+      color: #13445f;
+      list-style: none;
+    }
+    details.skill > summary::-webkit-details-marker { display: none; }
+    details.skill[open] > summary {
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
+    }
+    details.skill .body { padding: 14px 16px 16px; }
+    .skill-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 10px 0 12px;
+    }
+    .skill-meta div {
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #f4f7f9;
+    }
+    .skill-meta strong {
+      display: block;
+      color: var(--teal);
+      font-size: .78rem;
+      margin-bottom: 4px;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .filter {
+      cursor: pointer;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+    }
+    .filter.active, .filter:hover {
+      color: #fff;
+      border-color: var(--blue);
+      background: var(--blue);
+    }
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .prompt-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .prompt-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .prompt-head h3 { margin: 0; font-size: .98rem; }
+    .copy {
+      cursor: pointer;
+      flex: 0 0 auto;
+      padding: 5px 9px;
+      border: 1px solid rgba(23,105,170,.28);
+      border-radius: 8px;
+      color: var(--blue);
+      background: var(--soft);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+    .copy:hover { color: #fff; background: var(--blue); }
+    .prompt-meta { color: var(--muted); font-size: .78rem; margin-bottom: 8px; }
+    .prompt-card pre {
+      flex: 1;
+      margin: 0;
+      padding: 12px;
+      border-radius: 10px;
+      color: #edf7ff;
+      background: var(--code);
+      white-space: pre-wrap;
+      font-size: .82rem;
+      line-height: 1.58;
+      overflow: auto;
+    }
+    .hidden { display: none !important; }
+    .pill {
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+      padding: 2px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      font-size: .82rem;
+    }
+    footer {
+      margin: 20px 0 8px;
+      padding: 16px;
+      color: var(--muted);
+      text-align: center;
+      font-size: .86rem;
+    }
+    @media (max-width: 980px) {
+      .page { display: block; padding: 12px; }
+      .sidebar {
+        position: static;
+        height: auto;
+        margin-bottom: 12px;
+      }
+      .sidebar nav { columns: 2; }
+      .skill-meta { grid-template-columns: 1fr; }
+      .prompt-grid { grid-template-columns: 1fr; }
+      .route { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .sidebar nav { columns: 1; }
+      .hero { padding: 22px 18px; }
+      section.content { padding: 16px; }
     }
     @media print {
-      body { background:#fff; }
-      section { break-inside:avoid; }
+      body { background: #fff; }
+      .page { display: block; max-width: none; padding: 0; }
+      .sidebar, .filters, .copy { display: none; }
+      .hero, section.content { border: 0; box-shadow: none; break-inside: avoid; }
+      details.skill > .body { display: block !important; }
+      .prompt-grid { grid-template-columns: 1fr; }
+      a { color: inherit; text-decoration: none; }
     }
   </style>
 </head>
 <body>
-<main>
-  <header>
-    <p class="eyebrow">Research Workflow Kit · public entry manual</p>
-    <h1>从问题到可交付证据文本 / From question to deliverable evidence-backed text</h1>
-    <p class="muted">Grok annotation: Expanded by Grok on 2026-07-20 for dual-route, merged-core, priority full text, and HTML delivery contracts. Codex annotation: originally published 2026-07-15.</p>
-    <p>本页是详细路线指南；首次进入请先看<a href="../SCIENTIFIC_WORKFLOW_START_HERE.html">项目轻量入口</a>，再打开 <a href="ARCHITECTURE_ROADMAP.html">架构路线图</a> 与 <a href="WORKFLOW.md">工作流说明</a>。请按任务阶段选择技能和可选后端。</p>
-    <p>This is the detailed route guide. Start with the <a href="../SCIENTIFIC_WORKFLOW_START_HERE.html">lightweight project entry</a>, then open the <a href="ARCHITECTURE_ROADMAP.html">architecture roadmap</a> and <a href="WORKFLOW.md">workflow notes</a>. Choose skills and optional backends by stage.</p>
-  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="brand">
+        <strong>Research Workflow Kit</strong>
+        <span>公开轻量包 · 详细教学手册</span>
+      </div>
+      <div class="nav-label">快速导航</div>
+      <nav aria-label="教学手册目录">
+        <a href="#overview">1. 用途与边界</a>
+        <a href="#route-map">2. 路由决策</a>
+        <a href="#pipeline">3. 默认主路线</a>
+        <a href="#skills">4. 一级技能</a>
+        <a href="#artifacts">5. 产物与路径</a>
+        <a href="#evidence-boundary">6. 证据与安全</a>
+        <a href="#methods">7. Essential Core</a>
+        <a href="#prompts">8. 示例请求</a>
+        <a href="#setup">9. 安装与验证</a>
+        <a href="#limits">10. 限制与许可</a>
+        <a href="#links">11. 文档链接</a>
+      </nav>
+      <div class="nav-label">入口</div>
+      <nav aria-label="Related pages">
+        <a href="../SCIENTIFIC_WORKFLOW_START_HERE.html">轻量项目入口</a>
+        <a href="../README.md">README</a>
+        <a href="ARCHITECTURE_ROADMAP.html">架构路线图</a>
+        <a href="WORKFLOW.md">工作流说明</a>
+      </nav>
+      <div class="nav-label">原则</div>
+      <p style="font-size:.8rem;color:var(--muted);margin:0">Markdown 与结构化证据是权威源；HTML 用于导航与可读交付。可选后端缺失时主路线仍应完成。</p>
+    </aside>
 
-  <nav class="toc" aria-label="Page sections">
-    <a href="#phases">10 phases</a>
-    <a href="#required-optional">Required vs optional</a>
-    <a href="#evidence-boundary">Evidence states</a>
-    <a href="#dual-route">Dual-route fallback</a>
-    <a href="#merged-core">Merged core</a>
-    <a href="#fulltext">Priority full text</a>
-    <a href="#html-gate">HTML gate</a>
-    <a href="#methods">Research methods</a>
-    <a href="#links">Local links</a>
-  </nav>
+    <main>
+      <header class="hero">
+        <div class="badge-row">
+          <span class="badge">公开轻量包</span>
+          <span class="badge">7 个一级 Skills</span>
+          <span class="badge">可选双路线</span>
+          <span class="badge">MERGED_CORE 权威</span>
+          <span class="badge">OA-first 全文</span>
+          <span class="badge">结论型 HTML 门</span>
+        </div>
+        <h1>从问题到可交付证据文本<br>From question to deliverable evidence-backed text</h1>
+        <p>本页是 Research Workflow Kit 的<strong>详细教学手册</strong>。首次进入请先看 <a href="../SCIENTIFIC_WORKFLOW_START_HERE.html" style="color:#dff3ff">项目轻量入口</a>。此处解释技能何时使用、默认路线、产物路径、证据规则、安装验证，以及可复制示例请求。</p>
+        <p>This is the detailed route guide for the public lightweight kit—not a private full-lab manual and not a claim that optional backends are installed.</p>
+        <pre>最省事的起始请求：
+“请使用 Research Workflow Kit（workflow-router）。我的目标是：[目标]。已有材料：[说明]。请先判断阶段、选择 skill、说明证据边界与必做/可选步骤，再执行。不要编造文献、DOI、数据或实验结果；结论性交付请完成 HTML 清单。”</pre>
+      </header>
 
-  <section class="boundary" id="evidence-boundary">
-    <h2>证据边界 / Evidence boundary</h2>
-    <p>本工具包提供可追溯编排，不提供现成科学结论。区分：</p>
-    <p><span class="badge">claim</span> 可核对后谨慎使用的来源支撑论断 · <span class="badge">extract</span> 紧贴原文的摘录 · <span class="badge">inference</span> 超出摘录的解释 · <span class="badge">uncertainty</span> 冲突、缺全文或弱支持</p>
-    <p>This kit is a provenance-aware orchestration layer, not a source of finished scientific truth. Keep claim, extract, inference, and uncertainty explicit. Human confirmation is required before final claims, study-design commitments, or submission packaging.</p>
-  </section>
+      <section id="overview" class="content">
+        <span class="kicker">OVERVIEW</span>
+        <h2>1. 用途、受众与公开包边界</h2>
+        <p class="lead">Research Workflow Kit 是一套<strong>可追溯的研究编排层</strong>：把研究问题路由到文献发现、证据处理、综合、长文起草、学术编辑与文风检查。它帮助新研究者知道该用哪个 skill、期望哪些文件、何时必须停下来做人工确认。</p>
+        <div class="grid">
+          <div class="card">
+            <h3>做什么</h3>
+            <ul>
+              <li>阶段判断与技能路由</li>
+              <li>指南/问题拆解与检索策略</li>
+              <li>主路线文献发现与可选盲法次路线</li>
+              <li>合并核心、优先全文、证据卡与反证</li>
+              <li>长文、编辑、文风与结论型 HTML</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>不做什么</h3>
+            <ul>
+              <li>不提供现成科学真相或“已验证结果”</li>
+              <li>不保证引文正确或替代专家审阅</li>
+              <li>不捆绑大型搜索/解析/模型引擎</li>
+              <li>不描述付费墙绕过</li>
+              <li>不宣称完整 ARS 行为对等</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>受众</h3>
+            <ul>
+              <li>研究生与青年研究者</li>
+              <li>课题/申请书准备者</li>
+              <li>需要可审计代理工作流的写作者</li>
+              <li>审查公开合约的维护者</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>公开包 vs 完整实验室</h3>
+            <ul>
+              <li><strong>公开包：</strong>一级适配器、技能合约、模板、可选离线 methods runtime</li>
+              <li><strong>完整实验室：</strong>可含更重本地工具链与私有手册（不在本仓库）</li>
+              <li>本手册只写本仓库真实能力与路径</li>
+              <li>可选后端全缺时仍须完成主路线并显式回退</li>
+            </ul>
+          </div>
+        </div>
+        <div class="notice blue"><strong>权威层级：</strong>Markdown / JSON / CSV 等结构化产物是权威源；HTML 是人类可读导航与结论交付层；Word/PDF（若生成）是后期包装，默认不进入公开树。</div>
+      </section>
 
-  <section id="phases">
-    <h2>十条主路线 / Ten-phase default route</h2>
-    <div class="route" aria-label="Default research route">
-      <div class="stage"><h3>01 指南与问题</h3><small>Guide decomposition, scope, and candidate directions.</small></div>
-      <div class="stage"><h3>02 检索策略</h3><small>Keywords, queries, dual-route brief, converge criteria.</small></div>
-      <div class="stage"><h3>03 双路由预检</h3><small>literature_route_status.json; secondary is optional.</small></div>
-      <div class="stage"><h3>04 文献发现</h3><small>Primary discovery always; optional blind secondary pool.</small></div>
-      <div class="stage"><h3>05 合并核心</h3><small>Normalize, dedupe, re-screen → MERGED_CORE_PAPERS.md.</small></div>
-      <div class="stage"><h3>06 优先全文</h3><small>3–8 OA-first attempts, logs, deep reads, manual queue.</small></div>
-      <div class="stage"><h3>07 证据与综合</h3><small>Cards, field map, claims, counterevidence, synthesis.</small></div>
-      <div class="stage"><h3>08 起草与润色</h3><small>longform-writing → academic-editing → prose-lint.</small></div>
-      <div class="stage"><h3>09 HTML 交付门</h3><small>Entry page + 3–8 decision pages when conclusions are delivered.</small></div>
-      <div class="stage"><h3>10 打包与人工确认</h3><small>Markdown remains authoritative; Word/PDF optional.</small></div>
-    </div>
-  </section>
+      <section id="route-map" class="content">
+        <span class="kicker">ROUTING</span>
+        <h2>2. 先路由，再执行</h2>
+        <p class="lead"><strong>Skill</strong> 决定问题怎么拆、先做什么、何时可进入下一阶段；<strong>适配器/可选后端</strong>负责发现、解析、证据问答、图谱、综合或文风检查。后端缺失时返回显式 <code>missing</code>/<code>blocked</code>，不静默换用不相关工具。</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>当前需求</th><th>首选 Skill</th><th>常配可选适配器</th><th>不应直接做的事</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>不知道走哪条路线</td><td><code>workflow-router</code></td><td>按阶段再选</td><td>不要一上来调用全部后端</td></tr>
+              <tr><td>指南/问题深研与参考方案</td><td><code>proposal-research</code></td><td>discovery / document_parse / evidence_qa</td><td>硬门未过不要写提交级全文</td></tr>
+              <tr><td>已有草稿继续改</td><td><code>proposal-iteration</code></td><td>prose_lint</td><td>模糊反馈下不要盲目大改</td></tr>
+              <tr><td>系统评价、完整性、模拟审稿、RQ 收敛</td><td><code>research-methods</code></td><td>可选；可离线走合约/模板</td><td>宽题目未收敛不要直接写提纲</td></tr>
+              <tr><td>整篇/多章节结构与起草</td><td><code>longform-writing</code></td><td>—</td><td>不要跳过章节地图与证据映射</td></tr>
+              <tr><td>段落润色、术语、翻译、审稿回复</td><td><code>academic-editing</code></td><td>prose_lint</td><td>不要增强证据强度或补造事实</td></tr>
+              <tr><td>确定性文风检查</td><td><code>prose-lint</code></td><td>Vale（可选）</td><td>lint 通过 ≠ 科学论证通过</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-  <section id="required-optional" class="ok">
-    <h2>必做与可选 / Required vs optional</h2>
-    <table>
-      <thead><tr><th>Stage</th><th>CN</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>Guide / question parse</td><td>指南与问题拆解</td><td>Required for deep-research proposal runs</td></tr>
-        <tr><td>Primary literature discovery</td><td>主路由文献发现</td><td>Required when evidence is claimed</td></tr>
-        <tr><td>Merged or primary-final core list</td><td>合并或主路由终稿核心表</td><td>Required after convergence</td></tr>
-        <tr><td>Evidence cards and uncertainty log</td><td>证据卡与不确定性记录</td><td>Required before strong drafting claims</td></tr>
-        <tr><td>Human confirmation gate</td><td>人工确认门</td><td>Required before submission-facing conclusions</td></tr>
-        <tr><td>Secondary discovery provider</td><td>第二路由发现</td><td>Optional acceleration only</td></tr>
-        <tr><td>External adapters / engines</td><td>外部适配器与引擎</td><td>Optional; explicit missing status when unset</td></tr>
-        <tr><td>Priority full-text acquisition</td><td>优先全文获取</td><td>Required attempt set when full text is in scope; OA-first only</td></tr>
-        <tr><td>HTML conclusion package</td><td>结论型 HTML 交付</td><td>Required for conclusion-bearing runs; optional for pure exploration</td></tr>
-      </tbody>
-    </table>
-    <p>当所有可选适配器与第二提供方均未配置时，仍应输出模板、明确回退原因、元数据级证据和人工下一步。The kit must remain useful when every optional adapter is unset.</p>
-  </section>
+      <section id="pipeline" class="content">
+        <span class="kicker">PIPELINE</span>
+        <h2>3. 默认主路线：从问题到交付</h2>
+        <div class="route" aria-label="Default research route">
+          <div class="stage"><strong>01 指南与问题</strong><small>guide_decomposition、范围、候选方向评分</small></div>
+          <div class="stage"><strong>02 检索策略</strong><small>search_strategy.md；关键词、查询族、收敛标准</small></div>
+          <div class="stage"><strong>03 双路由预检</strong><small>literature_route_status.json；secondary 可选</small></div>
+          <div class="stage"><strong>04 文献发现</strong><small>主路线必做；可选盲法次路线候选池</small></div>
+          <div class="stage"><strong>05 合并核心</strong><small>归一化/去重/复筛 → MERGED_CORE_PAPERS.md</small></div>
+          <div class="stage"><strong>06 优先全文</strong><small>3–8 篇 OA-first、获取日志、深读、人工队列</small></div>
+          <div class="stage"><strong>07 证据与综合</strong><small>证据卡、领域图、claim 核验、反证、综合</small></div>
+          <div class="stage"><strong>08 起草与润色</strong><small>longform-writing → academic-editing → prose-lint</small></div>
+          <div class="stage"><strong>09 HTML 交付门</strong><small>结论型运行：入口 + 3–8 决策页</small></div>
+          <div class="stage"><strong>10 打包与人工确认</strong><small>MD 权威；提交前 human confirmation</small></div>
+        </div>
 
-  <section id="dual-route">
-    <h2>可选双路由与回退 / Optional dual-route and fallback</h2>
-    <ul>
-      <li>字段使用提供方中性的 <code>secondary_*</code>；<code>secondary_provider</code> 可为 <code>null</code>、<code>grok</code> 或其他独立提供方。</li>
-      <li>第二路由仅用于覆盖加速；主路由在第二路由、CLI、鉴权、发现、模型、配额、网络或任务不可用时必须完成。</li>
-      <li>合并前保持盲法独立发现；随后归一化 DOI/题名/年份、去重、对照遗漏、再筛选，并写入 <code>literature_route_status.json</code>。</li>
-    </ul>
-    <p>Use provider-neutral <code>secondary_*</code> fields. Grok is an example secondary provider, never a required dependency. Missing secondary capabilities produce <code>primary_only</code> (or <code>primary_only_after_secondary_failure</code>) with an explicit reason.</p>
-  </section>
+        <h3>必做与可选 / Required vs optional</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>阶段</th><th>中文</th><th>状态</th></tr></thead>
+            <tbody>
+              <tr><td>Guide / question parse</td><td>指南与问题拆解</td><td>深研/开题类运行：必做</td></tr>
+              <tr><td>Primary literature discovery</td><td>主路由文献发现</td><td>声称证据时：必做</td></tr>
+              <tr><td>Merged or primary-final core</td><td>合并或主路由终稿核心表</td><td>收敛后：必做权威</td></tr>
+              <tr><td>Evidence cards &amp; uncertainty</td><td>证据卡与不确定性</td><td>强论断起草前：必做</td></tr>
+              <tr><td>Human confirmation</td><td>人工确认门</td><td>提交级结论前：必做</td></tr>
+              <tr><td>Secondary discovery</td><td>第二路由发现</td><td>可选加速；缺则 primary_only</td></tr>
+              <tr><td>External adapters / engines</td><td>外部适配器与引擎</td><td>可选；未配置须显式 missing</td></tr>
+              <tr><td>Priority full-text acquisition</td><td>优先全文获取</td><td>全文在范围内：必做尝试集；仅 OA-first</td></tr>
+              <tr><td>HTML conclusion package</td><td>结论型 HTML</td><td>结论性运行：必做；纯探索：可选</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice"><strong>回退原则：</strong>第二路由、CLI、鉴权、发现、模型、配额、网络或任务不可用时，主路线必须完成；在 <code>literature_route_status.json</code> 写入 <code>primary_only</code> 或 <code>primary_only_after_secondary_failure</code> 与明确原因。</div>
+      </section>
 
-  <section id="merged-core">
-    <h2>合并核心权威 / Merged-core authority</h2>
-    <p>收敛之后，<strong><code>MERGED_CORE_PAPERS.md</code> 是下游唯一权威</strong>。 <code>core_papers.md</code> 仅作为合并前或单路由兼容模板，并须写明权威切换。</p>
-    <p>After convergence, <strong><code>MERGED_CORE_PAPERS.md</code> is the sole downstream authority</strong>. <code>core_papers.md</code> remains a compatible pre-merge or single-route template and must state the authority transition clearly.</p>
-  </section>
+      <section id="skills" class="content">
+        <span class="kicker">SKILLS</span>
+        <h2>4. 一级技能：何时用、输入、输出、示例</h2>
+        <p class="lead">以下技能均存在于本仓库 <code>skills/</code>。示例请求使用中文，可直接复制到代理会话；方括号替换为实际材料。</p>
 
-  <section id="fulltext">
-    <h2>优先全文 / Priority full text</h2>
-    <p>从合并核心中选择 3–8 篇决策关键文献，优先合法开放获取；记录每一次尝试；对可读全文做深读；无法获取时建立人工队列。禁止描述付费墙绕过。</p>
-    <p>Select 3–8 decision-critical papers, attempt lawful OA-first acquisition, log every attempt, deep-read readable full text, and create a manual-action queue when access is unavailable. Never describe paywall bypass.</p>
-    <p>Templates: <code>skills/proposal-research/templates/priority_papers.md</code>, <code>fulltext_acquisition.csv</code>, <code>FULLTEXT_MANUAL_ACTION_REQUIRED.md</code>, <code>deep_read_report.md</code>.</p>
-  </section>
+        <details class="skill" open>
+          <summary>4.1 workflow-router — 全局路由</summary>
+          <div class="body">
+            <p><strong>何时使用：</strong>任务跨多阶段、不确定 skill、需要先声明证据边界与必做/可选步骤时。</p>
+            <div class="skill-meta">
+              <div><strong>期望输入</strong>目标、已有材料、时限、是否允许联网检索、输出偏好</div>
+              <div><strong>核心动作</strong>读详细手册、判断阶段、选择 skill/适配器、声明边界与门禁</div>
+              <div><strong>关键输出</strong>路线说明、阶段清单、风险、下一步、手册链接</div>
+            </div>
+            <p><strong>中文示例：</strong>「请使用 workflow-router。我的目标是为课题写可追溯的文献与方案骨架；已有一份研究设想草稿。请先判断阶段并给出 skill 路线，不要直接成稿。」</p>
+            <p>契约：<a href="../skills/workflow-router/SKILL.md">skills/workflow-router/SKILL.md</a></p>
+          </div>
+        </details>
 
-  <section id="html-gate">
-    <h2>最终 HTML 门禁 / Final HTML gate</h2>
-    <p>Markdown 与结构化产物仍是权威源。结论型运行还需要：可读 UTF-8 HTML 入口页、3–8 个决策关键页、响应式/可打印导航、可见证据边界文本，以及本地链接检查。</p>
-    <p>Markdown/structured artifacts remain authoritative. Conclusion-bearing runs also require a readable UTF-8 HTML entry page, 3–8 decision-critical pages, responsive/print-friendly navigation, visible evidence-boundary text, and local-link checks.</p>
-    <p>Shells and checklist: <code>core_papers_page.html</code>, <code>priority_papers_page.html</code>, <code>html_delivery_checklist.md</code>.</p>
-  </section>
+        <details class="skill" open>
+          <summary>4.2 proposal-research — 开题/指南优先深研</summary>
+          <div class="body">
+            <p><strong>何时使用：</strong>从指南、开题材料、宽方向出发，建立检索、核心文献、证据卡与参考方案时。</p>
+            <div class="skill-meta">
+              <div><strong>期望输入</strong>指南/问题、背景、关键词、约束、已有数据说明（可无）</div>
+              <div><strong>核心动作</strong>拆解→策略→主/可选次路线→合并核心→OA 全文→证据→起草门</div>
+              <div><strong>关键输出</strong>见第 5 节产物清单；模板在 skills/proposal-research/templates/</div>
+            </div>
+            <p><strong>中文示例：</strong>「请使用 proposal-research。指南主题：[粘贴]。请拆解约束并生成 3 个候选方向评分，再写 search_strategy.md；次路线若不可用请 primary_only 继续。不要编造文献。」</p>
+            <p>契约：<a href="../skills/proposal-research/SKILL.md">skills/proposal-research/SKILL.md</a></p>
+          </div>
+        </details>
 
-  <section id="methods">
-    <h2>研究方法包何时使用 / When to open research-methods</h2>
-    <p>申报书深研默认走 <code>skills/proposal-research</code>。系统评价协议、引用完整性、同行评审、可重复性规划等走 <code>skills/research-methods</code> 入口。该入口现为第一方 <code>essential_core</code>：合约、模式注册表、模板与可选离线 runtime；E2–E3 协议深度为 <code>parity: partial</code>（研究问题/深研/系统评价 + 论文/完整性/评审），E4 管线/实验/optional_runtime 仍为 <code>parity: not_started</code>；部分深度不等于完整 ARS 行为对等，也不是真实多进程编排。完整 Academic Research Skills 套件为可选外部材料，不随本仓库捆绑，也不是必需运行时依赖。</p>
-    <p>Use <code>skills/proposal-research</code> for proposal deep research. Route systematic-review, integrity, peer-review, and reproducibility planning through <code>skills/research-methods</code>. That entry is first-party packaging mode <code>essential_core</code> (contracts, mode registry, templates, opt-in offline runtime). E2–E3 protocol bodies are operational at <code>parity: partial</code> (RQ/deep/SR + paper/integrity/review); E4 pipeline/experiment/optional_runtime bodies remain <code>parity: not_started</code>. Partial depth is not full ARS behavioral parity and not real multi-process orchestration. The full Academic Research Skills suite is optional external material: not bundled here and not a required runtime dependency.</p>
-    <p>Core templates: <code>skills/research-methods/core/templates/prisma_protocol.md</code>, <code>manuscript_review_full.md</code>, <code>citation_integrity_audit.md</code>, <code>reproducibility_checklist.md</code>. Runtime entry: <code>skills/research-methods/runtime/scripts/essential_full_runtime.py</code>. Upstream provenance and license notices remain under <code>docs/THIRD_PARTY_*</code> and <code>docs/licenses/</code>.</p>
-  </section>
+        <details class="skill">
+          <summary>4.3 proposal-iteration — 草稿迭代与修订循环</summary>
+          <div class="body">
+            <p><strong>何时使用：</strong>已有申请书/方案草稿，需要把“不够好”翻译成可选修改策略并小步修订时。</p>
+            <div class="skill-meta">
+              <div><strong>期望输入</strong>现有草稿路径/正文、反馈意见、不可改动的硬约束</div>
+              <div><strong>核心动作</strong>冻结版本→分轴诊断→小修订→复检→编辑与 lint</div>
+              <div><strong>关键输出</strong>诊断矩阵、修订日志、新版本草稿、未决风险、检查结果</div>
+            </div>
+            <p><strong>中文示例：</strong>「请使用 proposal-iteration。我觉得立项依据‘不够科学’，但说不清。请先给出 3–5 个互斥修改选项，先不要大改正文。」</p>
+            <p>契约：<a href="../skills/proposal-iteration/SKILL.md">skills/proposal-iteration/SKILL.md</a></p>
+          </div>
+        </details>
 
-  <section id="skills">
-    <h2>技能入口 / Skill entry points</h2>
-    <ul>
-      <li><code>skills/workflow-router</code> — 全局路由 / global routing</li>
-      <li><code>skills/proposal-research</code> — 指南优先深研与新文献/全文/HTML 合约 / deep research contracts</li>
-      <li><code>skills/proposal-iteration</code> — 反馈迭代 / revision loops</li>
-      <li><code>skills/research-methods</code> — 方法、完整性、评审协议 / methods and integrity</li>
-      <li><code>skills/longform-writing</code> · <code>skills/academic-editing</code> · <code>skills/prose-lint</code> — 写作与检查 / writing stack</li>
-    </ul>
-  </section>
+        <details class="skill">
+          <summary>4.4 research-methods — 方法 / 完整性 / 评审 Essential Core</summary>
+          <div class="body">
+            <p><strong>何时使用：</strong>研究问题收敛、深研协议、系统评价规划、引用完整性、手稿模拟审稿、论文模式规划时。申报书双路线/全文/HTML 仍归 <code>proposal-research</code>。</p>
+            <div class="skill-meta">
+              <div><strong>期望输入</strong>宽题目或清晰 RQ、稿件、引用表、协议需求</div>
+              <div><strong>核心动作</strong>模式路由、协议模板、证据状态、质量门、可选 offline runtime</div>
+              <div><strong>关键输出</strong>RQ brief、PRISMA 协议骨架、审稿/完整性模板填充、门禁结果</div>
+            </div>
+            <p><strong>中文示例：</strong>「请使用 research-methods，按 systematic_review 协议为主题 [主题] 起草 PRISMA 风格协议骨架。不要编造已完成检索结果或效应量。」</p>
+            <p>诚实深度：E2/E3 为 <code>parity: partial</code>；E4 管线/实验等为 <code>parity: not_started</code>。契约：<a href="../skills/research-methods/SKILL.md">skills/research-methods/SKILL.md</a></p>
+          </div>
+        </details>
 
-  <section id="links">
-    <h2>仓库内链接 / Repository-relative links</h2>
-    <p><a href="ARCHITECTURE_ROADMAP.html">架构路线图</a> · <a href="ARCHITECTURE.md">架构说明</a> · <a href="WORKFLOW.md">工作流</a> · <a href="DEPENDENCIES.md">依赖边界</a> · <a href="INSTALL.md">安装</a> · <a href="THIRD_PARTY_NOTICES.md">第三方致谢</a> · <a href="NAME_MAP.md">名称映射</a> · <a href="../README.md">README</a></p>
-    <p>外部后端配置见 <a href="DEPENDENCIES.md">依赖说明</a>。不要提交密钥、个人研究数据、真实申请书、虚拟环境或生成的二进制文件。</p>
-  </section>
+        <details class="skill">
+          <summary>4.5 longform-writing — 长文结构与起草</summary>
+          <div class="body">
+            <p><strong>何时使用：</strong>需要章节地图、综述结构、证据驱动段落或整篇/多章草稿时。</p>
+            <div class="skill-meta">
+              <div><strong>期望输入</strong>文类、读者、主张范围、证据材料、目标结构</div>
+              <div><strong>核心动作</strong>先 section map，再逐节起草并绑定来源与 uncertainty</div>
+              <div><strong>关键输出</strong>结构图、分节草稿、引用/不确定映射、移交编辑清单</div>
+            </div>
+            <p><strong>中文示例：</strong>「请使用 longform-writing。在已有 MERGED_CORE_PAPERS 与证据卡基础上，先输出相关工作章节地图与证据落点，再起草一节；不要新增无来源论断。」</p>
+            <p>契约：<a href="../skills/longform-writing/SKILL.md">skills/longform-writing/SKILL.md</a></p>
+          </div>
+        </details>
 
-  <footer>
-    <p>本页描述公共合约与入口，不代表外部后端已安装，也不替代科研人员对方法、证据和最终文本的审核。</p>
-    <p>This page describes public contracts and entry points. It does not imply installed backends and does not replace expert review.</p>
-  </footer>
-</main>
+        <details class="skill">
+          <summary>4.6 academic-editing — 保义学术编辑</summary>
+          <div class="body">
+            <p><strong>何时使用：</strong>含义基本正确，需要结构/语言/术语/翻译/审稿回复级修订时。</p>
+            <div class="skill-meta">
+              <div><strong>期望输入</strong>待改文本、干预级别、术语表、审稿意见（如有）</div>
+              <div><strong>核心动作</strong>保义润色；不增强 claim strength；记录变更与待确认项</div>
+              <div><strong>关键输出</strong>修订稿、变更说明、术语备注、未决问题</div>
+            </div>
+            <p><strong>中文示例：</strong>「请使用 academic-editing。统一以下段落的中英术语，并压缩空话；保留所有限定词与不确定性，不要新增结果。」</p>
+            <p>契约：<a href="../skills/academic-editing/SKILL.md">skills/academic-editing/SKILL.md</a></p>
+          </div>
+        </details>
+
+        <details class="skill">
+          <summary>4.7 prose-lint — 确定性文风检查</summary>
+          <div class="body">
+            <p><strong>何时使用：</strong>已有面向人的学术/申请书草稿，需要模板腔、过强表述、空壳强调等规则检查时。</p>
+            <div class="skill-meta">
+              <div><strong>期望输入</strong>草稿路径；可选 Vale 命令（WORKFLOW_LAB_PROSE_LINT_CMD）</div>
+              <div><strong>核心动作</strong>按 vale.ini 或 vale-grant.ini 跑规则；结果当审查提示</div>
+              <div><strong>关键输出</strong>发现列表（error/warning/suggestion）；不自动改科学含义</div>
+            </div>
+            <p><strong>中文示例：</strong>「请使用 prose-lint，用申请书配置检查当前立项依据草稿，只列出问题与建议，不要直接改写科学论断。」</p>
+            <p>配置：<code>src/workflow_lab/config/vale/</code> · 契约：<a href="../skills/prose-lint/SKILL.md">skills/prose-lint/SKILL.md</a></p>
+          </div>
+        </details>
+      </section>
+
+      <section id="artifacts" class="content">
+        <span class="kicker">ARTIFACTS</span>
+        <h2>5. 输出产物与仓库相对路径</h2>
+        <p class="lead">运行时产物应写在用户提供的 run 目录（或 sanitized 示例目录），不要把个人研究数据提交进仓库。下表给出<strong>合约/模板路径</strong>（仓库内）与<strong>典型运行产物名</strong>。</p>
+        <div class="grid">
+          <div class="card">
+            <h3>范围与方向</h3>
+            <p><code>skills/proposal-research/templates/guide_decomposition.md</code><br>
+            <code>candidate_directions.md</code><br>
+            <code>search_strategy.md</code></p>
+          </div>
+          <div class="card">
+            <h3>文献路线与核心</h3>
+            <p><code>literature_route_status.json</code><br>
+            <code>candidate_literature_pool.csv</code><br>
+            <code>core_papers.md</code>（合并前/单路线兼容）<br>
+            <code>MERGED_CORE_PAPERS.md</code>（收敛后唯一下游权威）</p>
+          </div>
+          <div class="card">
+            <h3>优先全文</h3>
+            <p><code>priority_papers.md</code><br>
+            <code>fulltext_acquisition.csv</code><br>
+            <code>FULLTEXT_MANUAL_ACTION_REQUIRED.md</code><br>
+            <code>deep_read_report.md</code></p>
+          </div>
+          <div class="card">
+            <h3>证据与核验</h3>
+            <p><code>evidence_cards.jsonl</code><br>
+            <code>field_map_summary.md</code><br>
+            <code>claim_verification.md</code><br>
+            <code>risks_and_counterevidence.md</code></p>
+          </div>
+          <div class="card">
+            <h3>写作与概念</h3>
+            <p><code>final_reference_draft.md</code><br>
+            <code>concept_card.md</code><br>
+            longform / editing 输出在 run 目录版本化保存</p>
+          </div>
+          <div class="card">
+            <h3>HTML 交付</h3>
+            <p><code>html_delivery_checklist.md</code><br>
+            <code>core_papers_page.html</code><br>
+            <code>priority_papers_page.html</code><br>
+            运行时入口页 + 3–8 决策页</p>
+          </div>
+        </div>
+        <h3>方法包模板（research-methods）</h3>
+        <p>常用：<code>skills/research-methods/core/templates/research_question_brief.md</code>、
+        <code>prisma_protocol.md</code>、
+        <code>citation_integrity_audit.md</code>、
+        <code>manuscript_review_full.md</code>、
+        <code>reproducibility_checklist.md</code>。
+        可选 runtime：<code>skills/research-methods/runtime/scripts/essential_full_runtime.py</code>。</p>
+        <h3>可选后端缺失时</h3>
+        <ul>
+          <li>discovery / parse / QA / map / synthesis / lint 未配置 → 产物中标注 <code>missing</code> 或 <code>blocked</code>，保留模板与人工下一步。</li>
+          <li>次路线不可用 → <code>primary_only</code>（或 failure 后同模式），主路线产物仍交付。</li>
+          <li>无 OA 全文 → 日志失败原因 + <code>FULLTEXT_MANUAL_ACTION_REQUIRED.md</code>；可用元数据级证据继续，但不得假装已全文深读。</li>
+        </ul>
+        <p>最小示例（仓库内、已脱敏）：<a href="../examples/minimal/guide.md">examples/minimal/guide.md</a> ·
+        <a href="../examples/minimal/evidence_card.jsonl">examples/minimal/evidence_card.jsonl</a></p>
+      </section>
+
+      <section id="evidence-boundary" class="content">
+        <span class="kicker">EVIDENCE &amp; SAFETY</span>
+        <h2>6. 证据标签与学术安全规则</h2>
+        <p class="muted" id="dual-route">Optional dual-route discovery remains acceleration-only; see section 3 for primary_only fallback rules.</p>
+        <p>完整七态词汇见 <a href="../skills/research-methods/core/contracts/evidence_states.md">skills/research-methods/core/contracts/evidence_states.md</a>。公开深研路线至少显式使用 claim / extract / inference / uncertainty；方法包要求七态。</p>
+        <p>
+          <span class="pill">claim</span>
+          <span class="pill">extract</span>
+          <span class="pill">inference</span>
+          <span class="pill">uncertainty</span>
+          <span class="pill">missing</span>
+          <span class="pill">blocked</span>
+          <span class="pill">human_confirmed</span>
+        </p>
+        <div class="grid">
+          <div class="card">
+            <h3>允许</h3>
+            <ul>
+              <li>带来源定位的摘录</li>
+              <li>与摘录分离的推断</li>
+              <li>冲突或弱支持时标 uncertainty</li>
+              <li>缺材料时标 missing/blocked</li>
+              <li>提交前要求 human confirmation</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>禁止</h3>
+            <ul>
+              <li>编造论文、DOI、作者、数据、统计量</li>
+              <li>编造审稿人、实验结果、机构承诺</li>
+              <li>用摘要/题录冒充全文方法或性能证据</li>
+              <li>用润色偷偷增强结论强度</li>
+              <li>把计划写成已完成结果</li>
+            </ul>
+          </div>
+        </div>
+        <div class="notice danger"><strong>硬规则：</strong>搜索命中 ≠ 已核验证据；解析成功 ≠ 观点正确；lint 通过 ≠ 可投稿。任何 summary 或 abstract 不得当作 full-text evidence。</div>
+      </section>
+
+      <section id="methods" class="content">
+        <span class="kicker">ESSENTIAL CORE</span>
+        <h2>7. Essential Core 能力与诚实限制</h2>
+        <p><code>skills/research-methods</code> 打包模式为第一方 <code>essential_core</code>：合约、模式注册表、协议、模板、双 agent 表面与可选离线 runtime。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>范围</th><th>内容</th><th>parity</th></tr></thead>
+            <tbody>
+              <tr><td>E2 方法深度</td><td>research question / deep research / systematic review</td><td><code>partial</code></td></tr>
+              <tr><td>E3 论文与诚信</td><td>academic paper / citation integrity / manuscript review</td><td><code>partial</code></td></tr>
+              <tr><td>E4 管线与实验</td><td>academic pipeline / experiment / optional runtime bodies</td><td><code>not_started</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li><code>parity: partial</code> 表示可运行、有合约与质量门，但<strong>不是</strong>完整 Academic Research Skills 行为对等。</li>
+          <li>不是真实多进程编排，不是编辑部权威，不自动安装外部套件。</li>
+          <li>完整 ARS 为可选外部材料；本仓库不捆绑 <code>ars/</code> 或 <code>codex/</code> 树。</li>
+        </ul>
+        <p>可选离线命令示例：</p>
+        <p><code>python skills/research-methods/runtime/scripts/essential_full_runtime.py plan --text "..." --json</code><br>
+        <code>python skills/research-methods/runtime/scripts/essential_quality_gates.py list --json</code></p>
+      </section>
+
+      <section id="prompts" class="content">
+        <span class="kicker">COPY-READY PROMPTS</span>
+        <h2>8. 可复制示例请求（≥15）</h2>
+        <p class="lead">以下请求可直接复制。它们不承诺不可用后端，不要求私有上下文，不诱导编造证据。方括号替换为你的材料。</p>
+        <div class="filters" aria-label="提示词筛选">
+          <button type="button" class="filter active" data-filter="all">全部</button>
+          <button type="button" class="filter" data-filter="route">路由</button>
+          <button type="button" class="filter" data-filter="proposal">深研</button>
+          <button type="button" class="filter" data-filter="methods">方法/评审</button>
+          <button type="button" class="filter" data-filter="write">写作编辑</button>
+          <button type="button" class="filter" data-filter="delivery">全文/交付</button>
+        </div>
+        <div class="prompt-grid" id="prompt-grid">
+
+          <article class="prompt-card" data-group="route">
+            <div class="prompt-head"><h3>P01 · 全局路由</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">workflow-router</div>
+            <pre>请使用 workflow-router。
+我的目标是：[填写目标]。
+已有材料：[路径或说明；可写“暂无”]。
+请先判断研究阶段、推荐 skills 与可选适配器、列出必做/可选步骤与证据边界，再开始执行。
+不要编造文献、DOI、数据或实验结果。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="proposal">
+            <div class="prompt-head"><h3>P02 · 开题深研</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">proposal-research · deep research</div>
+            <pre>请使用 proposal-research。
+指南/问题：[粘贴或说明]。
+研究背景：[填写]。
+请完成：指南拆解、3 个候选方向评分、search_strategy.md、主路线文献发现、literature_route_status.json。
+次路线若不可用，记录 fallback 后以 primary_only 继续。
+不要编造候选论文；未知项标 uncertainty 或 missing。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="proposal">
+            <div class="prompt-head"><h3>P03 · 文献发现与候选池</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">proposal-research · paper discovery</div>
+            <pre>请为主题 [填写] 建立检索策略并执行主路线文献发现。
+方向尚不清晰时软目标 80–120 候选；方向清晰时 50–80。
+输出 search_strategy.md 与 candidate_literature_pool.csv（含 DOI/URL/日期/获取状态字段；未知留空并标注）。
+若 discovery 适配器未配置，请给出可手工执行的查询族与记录表，状态标 missing，不要虚构命中列表。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="proposal">
+            <div class="prompt-head"><h3>P04 · 可选次路线回退</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">dual-route fallback</div>
+            <pre>请执行双路线预检并写入 literature_route_status.json。
+secondary_provider 可为 null 或其他独立提供方；本环境若不具备次路线条件，请设置 primary_only（或 primary_only_after_secondary_failure），写明 fallback_reason，并继续完成主路线。
+不要阻塞等待用户安装后端，也不要编造次路线结果。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="proposal">
+            <div class="prompt-head"><h3>P05 · 合并核心文献</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">MERGED_CORE_PAPERS</div>
+            <pre>请在候选池基础上归一化 DOI/题名/年份、去重、复筛，输出 MERGED_CORE_PAPERS.md 作为收敛后唯一下游权威。
+core_papers.md 如需保留，仅作兼容快照并写明权威已切换。
+每条记录证据等级与对本课题的直接约束；无法核验的标 uncertainty。不要发明论文条目。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="delivery">
+            <div class="prompt-head"><h3>P06 · 优先全文与人工队列</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">priority full text · OA-first</div>
+            <pre>请从 MERGED_CORE_PAPERS 选择 3–8 篇决策关键文献写入 priority_papers.md。
+仅尝试合法 OA-first 获取；每次尝试记入 fulltext_acquisition.csv。
+可读全文写 deep_read_report.md；失败项写入 FULLTEXT_MANUAL_ACTION_REQUIRED.md。
+禁止描述付费墙绕过；无全文时不得用摘要冒充方法/性能证据。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="proposal">
+            <div class="prompt-head"><h3>P07 · 证据抽取</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">evidence cards</div>
+            <pre>请基于已获材料建立 evidence_cards.jsonl。
+每条至少包含 claim / extract / inference 或 uncertainty、来源定位、局限与可用章节。
+仅对真实可读文本做 extract；缺全文标 missing。
+不要为了凑数量编造卡片或 DOI。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="methods">
+            <div class="prompt-head"><h3>P08 · 系统评价协议规划</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">research-methods · systematic review</div>
+            <pre>请使用 research-methods，按 systematic_review 协议为主题 [填写] 起草协议骨架（可参考 prisma_protocol 模板）。
+包含问题结构、纳排标准、检索串族计划、筛选流程、抽取字段、偏倚评估与合成计划。
+不要编造已完成检索结果、纳入研究和效应量。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="methods">
+            <div class="prompt-head"><h3>P09 · 引用完整性</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">research-methods · citation integrity</div>
+            <pre>请使用 research-methods 的 citation_integrity 协议，检查以下文本中的关键 claim 与引用是否匹配：
+[粘贴段落或说明文件]
+输出 supported / partial / unsupported / unresolved，并给出不增强证据的安全改写建议。
+无法核验的 DOI/条目标 uncertainty 或 missing，不要补造参考文献。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="methods">
+            <div class="prompt-head"><h3>P10 · 手稿模拟审稿</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">research-methods · manuscript review</div>
+            <pre>请使用 research-methods 的 manuscript_review 协议，对 [稿件说明/粘贴] 做模拟审稿。
+分别给出主要问题、次要问题、claim-to-evidence 缺口与建议决定。
+本轮只审查不改写；不要虚构审稿人身份或未提供的实验结果。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="write">
+            <div class="prompt-head"><h3>P11 · 审稿意见回复草案</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">academic-editing · revision response</div>
+            <pre>请使用 academic-editing，根据以下审稿意见起草逐条回复与对应修改建议：
+[粘贴意见]
+区分：已能证据支持的修改、需要我补充数据/全文的项、不能接受但可礼貌解释的项。
+不要编造新实验或新文献来“堵漏洞”。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="write">
+            <div class="prompt-head"><h3>P12 · 长文起草</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">longform-writing</div>
+            <pre>请使用 longform-writing。
+文类：[综述/方案/论文章节]。
+已有证据材料：[列出已有文件名或粘贴要点]。
+请先输出章节地图与每节证据落点，再起草 [指定章节]。
+每个实质性论断标注 claim/extract/inference/uncertainty；禁止无来源增强结论。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="write">
+            <div class="prompt-head"><h3>P13 · 术语与保义编辑</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">academic-editing · terminology</div>
+            <pre>请使用 academic-editing 对以下文本做术语一致性与保义压缩：
+[粘贴文本]
+统一中英术语与缩写；保留限定词、不确定性与原始 claim strength。
+输出修订稿 + 变更说明 + 需我确认的术语歧义。不要新增数据或引用。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="write">
+            <div class="prompt-head"><h3>P14 · 文风检查</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">prose-lint</div>
+            <pre>请使用 prose-lint，按申请书或学术中文配置检查 [草稿说明]。
+若 WORKFLOW_LAB_PROSE_LINT_CMD / Vale 未配置，请基于 skills/prose-lint 与 src/workflow_lab/config/vale 规则做人工对照清单，并标注 lint 后端 missing。
+只报告问题，不要把 lint 通过写成证据已核验。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="delivery">
+            <div class="prompt-head"><h3>P15 · 结论型 HTML 打包</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">HTML delivery gate</div>
+            <pre>本任务为结论性交付。请完成 html_delivery_checklist.md：
+- UTF-8 可读入口页
+- 3–8 个决策关键页面（含核心论文与优先全文相关页）
+- 可见证据边界文本
+- 响应式/打印友好导航
+- 仓库相对本地链接检查
+Markdown/结构化文件保持权威。不要写入本机绝对路径，不要编造未产生的结果。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="methods">
+            <div class="prompt-head"><h3>P16 · 研究问题收敛</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">research-methods · research question</div>
+            <pre>请使用 research-methods 的 research_question / deep_research 路径。
+宽题目是：[填写]。
+先提出 3–5 个能收敛对象、机制、数据、终点与方法的问题，再给出候选 RQ 与不可用假设。
+暂不写论文提纲，不编造文献支持。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="proposal">
+            <div class="prompt-head"><h3>P17 · 论断核验与反证</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">claim verification</div>
+            <pre>请对以下关键论断逐条核验并输出 claim_verification.md 与 risks_and_counterevidence.md：
+[粘贴论断]
+标记 supported / partial / unsupported / unresolved，给出可安全使用的改写与停止条件。
+无来源支持时不要“圆回来”。</pre>
+          </article>
+
+          <article class="prompt-card" data-group="route">
+            <div class="prompt-head"><h3>P18 · 仅状态诊断</h3><button type="button" class="copy">复制</button></div>
+            <div class="prompt-meta">workflow-router · status only</div>
+            <pre>请使用 workflow-router，只做状态诊断，不生成正文。
+列出：当前阶段、已有产物、缺失产物、下一道硬门、推荐 skill、最小下一步。
+当前材料：[填写]</pre>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="setup" class="content">
+        <span class="kicker">SETUP</span>
+        <h2>9. 安装、最小用法与验证</h2>
+        <h3>环境要求</h3>
+        <ul>
+          <li>Python 3.10 或更高</li>
+          <li>可选本地后端仅通过环境变量配置（见 <a href="DEPENDENCIES.md">DEPENDENCIES.md</a>）</li>
+          <li>安装与运行一级层不要求云 API 或第三方研究引擎</li>
+        </ul>
+        <h3>安装</h3>
+        <p><code>python -m venv .venv</code><br>
+        <code>.\.venv\Scripts\python -m pip install -e ".[test]"</code><br>
+        <code>python -m workflow_lab --help</code></p>
+        <h3>自然语言用法</h3>
+        <p>在支持本仓库 skills 的代理中：打开本手册 → 粘贴第 8 节示例 → 按返回的路线与门禁推进。也可先发 P01 让 <code>workflow-router</code> 选型。</p>
+        <h3>可选 methods runtime</h3>
+        <p><code>python skills/research-methods/runtime/scripts/essential_full_runtime.py plan --text "refine my research question on ..." --json</code></p>
+        <h3>验证命令</h3>
+        <p><code>python -m compileall -q src tests scripts</code><br>
+        <code>python -m pytest</code><br>
+        <code>python scripts/verify_publish_tree.py</code></p>
+        <p>更多：<a href="INSTALL.md">INSTALL.md</a> · <a href="../README.md">README.md</a></p>
+      </section>
+
+      <section id="limits" class="content">
+        <span class="kicker">LIMITS · SECURITY · LICENSE</span>
+        <h2>10. 限制、安全与许可</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>限制</h3>
+            <ul>
+              <li>不提供科学证据，不保证引文正确</li>
+              <li>不能替代领域专家与伦理审查</li>
+              <li>可选后端可能需凭据、网络或单独许可</li>
+              <li>Essential Core 部分深度 ≠ 完整 ARS</li>
+              <li>生成的 Word/PDF、venv、个人运行产物不在公开树</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>安全</h3>
+            <ul>
+              <li>勿提交 API 密钥、未发表手稿、个人/健康数据</li>
+              <li>凭据只走本地环境变量</li>
+              <li>安全问题走 GitHub Security Advisories（见 <a href="../SECURITY.md">SECURITY.md</a>）</li>
+              <li>勿在公开 issue 披露敏感信息</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>许可与出处</h3>
+            <ul>
+              <li>一级层：MIT（<a href="../LICENSE">LICENSE</a>）</li>
+              <li>第三方：<a href="THIRD_PARTY_NOTICES.md">THIRD_PARTY_NOTICES.md</a></li>
+              <li>清单：<a href="THIRD_PARTY_MANIFEST.json">THIRD_PARTY_MANIFEST.json</a></li>
+              <li>引用元数据：<a href="../CITATION.cff">CITATION.cff</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="links" class="content">
+        <span class="kicker">LINKS</span>
+        <h2>11. 仓库内文档链接</h2>
+        <p>
+          <a href="../SCIENTIFIC_WORKFLOW_START_HERE.html">轻量入口</a> ·
+          <a href="../README.md">README</a> ·
+          <a href="ARCHITECTURE_ROADMAP.html">架构路线图</a> ·
+          <a href="ARCHITECTURE.md">架构说明</a> ·
+          <a href="WORKFLOW.md">工作流</a> ·
+          <a href="DEPENDENCIES.md">依赖边界</a> ·
+          <a href="INSTALL.md">安装</a> ·
+          <a href="NAME_MAP.md">名称映射</a> ·
+          <a href="THIRD_PARTY_NOTICES.md">第三方致谢</a> ·
+          <a href="../AGENTS.md">AGENTS</a> ·
+          <a href="../CONTRIBUTING.md">CONTRIBUTING</a> ·
+          <a href="../SECURITY.md">SECURITY</a>
+        </p>
+        <p class="muted">本页描述公共合约与入口，不代表外部后端已安装，也不替代科研人员对方法、证据和最终文本的审核。</p>
+        <p class="muted">This page describes public contracts and entry points. It does not imply installed backends and does not replace expert review.</p>
+      </section>
+
+      <footer>
+        <p>Grok annotation: Detailed public teaching manual rebuilt 2026-07-21. Skills, templates, and structured artifacts remain authoritative.</p>
+        <p>Markdown / structured files are authoritative; this HTML page is navigation and teaching delivery.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var filters = document.querySelectorAll(".filter");
+      var cards = document.querySelectorAll(".prompt-card");
+      filters.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var key = btn.getAttribute("data-filter");
+          filters.forEach(function (b) { b.classList.toggle("active", b === btn); });
+          cards.forEach(function (card) {
+            var group = card.getAttribute("data-group");
+            var show = key === "all" || group === key;
+            card.classList.toggle("hidden", !show);
+          });
+        });
+      });
+      document.querySelectorAll(".copy").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var card = btn.closest(".prompt-card");
+          var pre = card ? card.querySelector("pre") : null;
+          if (!pre) return;
+          var text = pre.textContent || "";
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () {
+              btn.textContent = "已复制";
+              setTimeout(function () { btn.textContent = "复制"; }, 1200);
+            }).catch(function () {
+              btn.textContent = "请手动复制";
+              setTimeout(function () { btn.textContent = "复制"; }, 1500);
+            });
+          } else {
+            btn.textContent = "请手动复制";
+            setTimeout(function () { btn.textContent = "复制"; }, 1500);
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
